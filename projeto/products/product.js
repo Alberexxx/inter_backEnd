@@ -18,6 +18,6 @@ const Product = connection.define("products", {
 
 
 
-Product.sync({force: true})
+//Product.sync({force: true})
 
 module.exports = Product

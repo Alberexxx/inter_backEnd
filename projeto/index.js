@@ -40,10 +40,23 @@ app.get("/",(req, res) => {
     res.render("index")
 });
 
-app.get('/products', (req, res) => {
-    Product.findAll().then(product => {
-        res.json(product)
+app.get('/getProducts', (req, res) => {
+    Product.findAll().then((products) => {
+        res.json(products)
+    }).catch((err) => {
+        res.send(err)
     })
+})
+
+app.get('/addProducts/:nome', (req, res) => {
+   var nome_produto = req.params.nome
+
+   Product.create({
+    nome_produto: nome_produto
+
+   }).then(() => {
+    res.redirect("/getProducts")
+   })
 })
 
 
