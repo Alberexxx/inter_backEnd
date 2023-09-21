@@ -3,21 +3,31 @@ const app = express();
 const connection = require('./database/connection')
 
 
-
 //import dos models
-
-const Product = require('./products/product')
-const User = require('./users/User')
-
+const product = require('./models/product')
+const user = require('./models/user')
+const userAdmin = require('./models/userAdmin')
+const pedido = require('./models/pedido')
+const comentario_produto = require('./models/comentario_produto')
+const categoria = require('./models/categoria')
+const carrinho = require('./models/carrinho')
+const avaliacao_site = require('./models/user')
 
 //import dos controllers
+const productController = require('./controllers/ProductController')
+const avaliacao_siteController = require('./controllers/avaliacao_siteController')
+const carrinhoController = require('./controllers/carrinhoController')
+const categoriaController = require('./controllers/categoriaController')
+const userController = require('./controllers/userController')
+const comentario_produtoController = require('./controllers/comentario_produtoController')
+const userAdminController = require('./controllers/userAdminController')
+const pedidoController = require('./controllers/pedidoController')
 
-   //app.use('/', userController)
 
 //view engine
 app.set('view engine', 'ejs')
 
-//static
+//diretorio padrao para busca de arquivos estaticos
 app.use(express.static('public'))
 
 //body-parser
@@ -33,6 +43,15 @@ connection
         console.log(err);k
     })
 
+//utilizacao dos modulos
+app.use('/', userController)
+app.use('/', avaliacao_siteController)
+app.use('/', carrinhoController)
+app.use('/', categoriaController)
+app.use('/', comentario_produtoController)
+app.use('/', pedidoController)
+app.use('/', productController)
+app.use('/', userAdminController)
 
  // Rotas
 
@@ -42,11 +61,14 @@ app.get("/",(req, res) => {
 
 app.get('/getProducts', (req, res) => {
     Product.findAll().then((products) => {
+        
         res.json(products)
     }).catch((err) => {
         res.send(err)
     })
 })
+
+
 
 app.get('/addProducts/:nome', (req, res) => {
    var nome_produto = req.params.nome

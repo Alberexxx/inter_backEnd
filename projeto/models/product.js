@@ -12,10 +12,6 @@ const Product = connection.define("products", {
     }
 })
 
-//Product.create({
-    nome_produto: "sapato"
-//})
-
 
 
 //Product.sync({force: true})
