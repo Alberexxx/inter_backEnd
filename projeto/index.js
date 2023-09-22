@@ -5,23 +5,26 @@ const connection = require('./database/connection')
 
 //import dos models
 const product = require('./models/product')
-const user = require('./models/user')
+const user = require('./models/usuario')
 const userAdmin = require('./models/userAdmin')
 const pedido = require('./models/pedido')
 const comentario_produto = require('./models/comentario_produto')
 const categoria = require('./models/categoria')
 const carrinho = require('./models/carrinho')
-const avaliacao_site = require('./models/user')
+const avaliacao_site = require('./models/usuario')
+const endereco = require('./models/endereco')
+
 
 //import dos controllers
-const productController = require('./controllers/ProductController')
+const productController = require('./controllers/productController')
 const avaliacao_siteController = require('./controllers/avaliacao_siteController')
 const carrinhoController = require('./controllers/carrinhoController')
 const categoriaController = require('./controllers/categoriaController')
-const userController = require('./controllers/userController')
+const userController = require('./controllers/usuarioController')
 const comentario_produtoController = require('./controllers/comentario_produtoController')
 const userAdminController = require('./controllers/userAdminController')
 const pedidoController = require('./controllers/pedidoController')
+const enderecoController = require('./controllers/enderecoController')
 
 
 //view engine
@@ -30,9 +33,6 @@ app.set('view engine', 'ejs')
 //diretorio padrao para busca de arquivos estaticos
 app.use(express.static('public'))
 
-//body-parser
-// app.use(bodyParser.urlencoded({extended: false}))
-// app.use(bodyParser.json());
 
 //database
 connection
@@ -43,43 +43,26 @@ connection
         console.log(err);k
     })
 
-//utilizacao dos modulos
-app.use('/', userController)
-app.use('/', avaliacao_siteController)
-app.use('/', carrinhoController)
-app.use('/', categoriaController)
-app.use('/', comentario_produtoController)
-app.use('/', pedidoController)
+//utilizacao dos roteadores
+//app.use('/', userController)
+//app.use('/', avaliacao_siteController)
+//app.use('/', carrinhoController)
+//app.use('/', categoriaController)
+//app.use('/', comentario_produtoController)
+//app.use('/', pedidoController)
 app.use('/', productController)
-app.use('/', userAdminController)
+//app.use('/', userAdminController)
+//app.use('/', enderecoController)
 
- // Rotas
 
+// Rotas
 app.get("/",(req, res) => {
-    res.render("index")
+    product.findAll().then(produto => {
+        res.render("index", {produto: produto})
+    })
+    
 });
 
-app.get('/getProducts', (req, res) => {
-    Product.findAll().then((products) => {
-        
-        res.json(products)
-    }).catch((err) => {
-        res.send(err)
-    })
-})
-
-
-
-app.get('/addProducts/:nome', (req, res) => {
-   var nome_produto = req.params.nome
-
-   Product.create({
-    nome_produto: nome_produto
-
-   }).then(() => {
-    res.redirect("/getProducts")
-   })
-})
 
 
 

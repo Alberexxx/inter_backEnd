@@ -1,27 +1,35 @@
 const Sequelize = require("sequelize")
 const connection = require("../database/connection")
 
-const carrinho = connection.define("carrinho", {
-    id_carrinho: {
+const usuario = connection.define("users", {
+    id_usuario: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true
-    }, produtos: {
+    }, nome: {
         type: Sequelize.STRING,
         allowNull: false
-    }, valorTotal: {
-        type: Sequelize.DECIMAL,
+    }, email: {
+        type: Sequelize.STRING,
         allowNull: true
-    }, descricao: {
+    }, senha: {
         type: Sequelize.STRING,
         allowNull: true
     }, foto: {
         type: Sequelize.STRING,
         allowNull: true
+    }, sexo: {
+        type: Sequelize.STRING, 
+        primaryKey: true
+    }, telefone: {
+        type: Sequelize.STRING,
+        allowNull: false
     }
 
 })
 
+
+
 //Product.sync({force: true})
 
-module.exports = carrinho
+module.exports = usuario

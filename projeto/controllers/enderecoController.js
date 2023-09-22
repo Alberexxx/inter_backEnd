@@ -1,13 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const comentario = require("../models/comentario_produto")
+const endereco = require("../models/endereco")
 
 
 // --------> CRUD <-------- //
 
 //READ
 router.get('/get', (req, res) => {
-    comentario.findAll().then((   ) => {
+    endereco.findAll().then((   ) => {
         
         
     }).catch((err) => {
@@ -19,7 +19,7 @@ router.get('/get', (req, res) => {
 //CREATE
 router.get('/add', (req, res) => {
 
-   comentario.create({
+   endereco.create({
     
 
    }).then(() => {
