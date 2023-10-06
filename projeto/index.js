@@ -3,6 +3,15 @@ const app = express();
 const connection = require('./database/connection')
 
 
+app.use(express.urlencoded({ extended: true })); // Para analisar dados de formulário
+app.use(express.json()); //Para analisar dados JSON
+
+
+
+
+
+
+
 //import dos models
 const product = require('./models/product')
 const user = require('./models/usuario')
@@ -13,6 +22,10 @@ const categoria = require('./models/categoria')
 const carrinho = require('./models/carrinho')
 const avaliacao_site = require('./models/usuario')
 const endereco = require('./models/endereco')
+const item_carrinho = require('./models/itemCarrinho')
+
+
+
 
 
 //import dos controllers
@@ -46,8 +59,8 @@ connection
 //utilizacao dos roteadores
 //app.use('/', userController)
 //app.use('/', avaliacao_siteController)
-//app.use('/', carrinhoController)
-//app.use('/', categoriaController)
+app.use('/', carrinhoController)
+app.use('/', categoriaController)
 //app.use('/', comentario_produtoController)
 //app.use('/', pedidoController)
 app.use('/', productController)

@@ -11,10 +11,10 @@ const UserAdmin = connection.define("usersAdmin", {
         allowNull: false
     }, email: {
         type: Sequelize.STRING,
-        allowNull: true
+        allowNull: false
     }, senha: {
         type: Sequelize.STRING,
-        allowNull: true
+        allowNull: false
     }, foto: {
         type: Sequelize.STRING,
         allowNull: true
@@ -23,6 +23,6 @@ const UserAdmin = connection.define("usersAdmin", {
 })
 
 
-//Product.sync({force: true})
+//UserAdmin.sync({force: true})
 
 module.exports = UserAdmin

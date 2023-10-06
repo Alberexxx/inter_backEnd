@@ -18,6 +18,6 @@ const avaliacao_site = connection.define("avaliacao_site", {
 
 
 
-//Product.sync({force: true})
+//avaliacao_site.sync({force: true})
 
 module.exports = avaliacao_site

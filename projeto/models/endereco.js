@@ -1,5 +1,6 @@
 const Sequelize = require("sequelize")
 const connection = require("../database/connection")
+const usuario = require("./usuario")
 
 const endereco = connection.define("endereco", {
     id_endereco: {
@@ -21,13 +22,18 @@ const endereco = connection.define("endereco", {
     }, cep: {
         type: Sequelize.STRING,
         allowNull: true
+    }, estado: {
+        type: Sequelize.STRING,
+        allowNull: true
     }
 
 
 })
 
+endereco.belongsTo(usuario);
+usuario.hasOne(endereco);
 
 
-//Product.sync({force: true})
+//endereco.sync({force: true})
 
 module.exports = endereco

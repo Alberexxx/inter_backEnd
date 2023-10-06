@@ -18,6 +18,6 @@ const categoria = connection.define("categorias", {
 
 
 
-//Product.sync({force: true})
+//categoria.sync({force: true})
 
 module.exports = categoria

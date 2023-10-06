@@ -1,5 +1,7 @@
 const Sequelize = require("sequelize")
-const connection = require("../database/connection")
+const connection = require("../database/connection");
+const usuario = require("./usuario");
+
 
 const Pedido = connection.define("Pedidos", {
     id_pedido: {
@@ -22,8 +24,10 @@ const Pedido = connection.define("Pedidos", {
 
 })
 
+usuario.hasMany(Pedido);
+Pedido.belongsTo(usuario);
 
 
-//Product.sync({force: true})
+//Pedido.sync({force: true})
 
 module.exports = Pedido

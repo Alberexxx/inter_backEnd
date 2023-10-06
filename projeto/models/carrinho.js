@@ -11,17 +11,11 @@ const carrinho = connection.define("carrinho", {
         allowNull: false
     }, valorTotal: {
         type: Sequelize.DECIMAL,
-        allowNull: true
-    }, descricao: {
-        type: Sequelize.STRING,
-        allowNull: true
-    }, foto: {
-        type: Sequelize.STRING,
-        allowNull: true
+        allowNull: false
     }
 
 })
 
-//Product.sync({force: true})
+//carrinho.sync({force: true})
 
 module.exports = carrinho

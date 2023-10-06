@@ -1,6 +1,9 @@
 const Sequelize = require("sequelize")
 const connection = require("../database/connection")
 
+Categoria = require('./categoria')
+
+
 const Product = connection.define("products", {
     id_produto: {
         type: Sequelize.INTEGER,
@@ -16,14 +19,24 @@ const Product = connection.define("products", {
         type: Sequelize.STRING,
         allowNull: true
     }, foto: {
+        type: Sequelize.BLOB,
+        allowNull: true
+    }, mimetype: {
+        type: Sequelize.STRING,
+        allowNull: true
+    }, originalname: {
         type: Sequelize.STRING,
         allowNull: true
     }
 })
+
+//relacionamentos
+Product.belongsTo(Categoria);
+Categoria.hasMany(Product);
+
  
-
-
 //Product.sync({force: true})
+
 
 module.exports = Product
 
