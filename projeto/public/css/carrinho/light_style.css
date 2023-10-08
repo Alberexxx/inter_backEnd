@@ -87,7 +87,7 @@
     align-items: center;
   }
   .product img {
-    border-radius: 6px;
+    border-radius: 6px; /*---------------------*/
   }
   .product .info {
     margin-left: 20px;
@@ -221,7 +221,7 @@
     }
     img {
       border-radius: 2px;
-      width: 50%;
+      width: 500px;
       border: none;
     }
     th {

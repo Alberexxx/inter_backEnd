@@ -29,7 +29,7 @@ const item_carrinho = require('./models/itemCarrinho')
 
 
 //import dos controllers
-const productController = require('./controllers/productController')
+const productController = require('./controllers/produtoController')
 const avaliacao_siteController = require('./controllers/avaliacao_siteController')
 const carrinhoController = require('./controllers/carrinhoController')
 const categoriaController = require('./controllers/categoriaController')
@@ -38,6 +38,8 @@ const comentario_produtoController = require('./controllers/comentario_produtoCo
 const userAdminController = require('./controllers/userAdminController')
 const pedidoController = require('./controllers/pedidoController')
 const enderecoController = require('./controllers/enderecoController')
+const pagamentoController = require("./controllers/pagamentoController")
+const loginController = require("./controllers/loginController")
 
 
 //view engine
@@ -62,10 +64,13 @@ connection
 app.use('/', carrinhoController)
 app.use('/', categoriaController)
 //app.use('/', comentario_produtoController)
-//app.use('/', pedidoController)
+app.use('/', pedidoController)
 app.use('/', productController)
 //app.use('/', userAdminController)
 //app.use('/', enderecoController)
+app.use("/", pagamentoController)
+app.use("/", loginController)
+
 
 
 // Rotas

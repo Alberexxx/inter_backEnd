@@ -1,20 +1,20 @@
 const express = require('express');
 const router = express.Router();
-const pedido = require("../models/pedido")
+//const usuario = require("../models/pedido")
 
 
 // --------> CRUD <-------- //
 
 //READ
-router.get('/pedidos', (req, res) => {
-    res.render("statusPedido")
+router.get('/pagamento', (req, res) => {
+   res.render("pagamento")
 })
 
 
 //CREATE
 router.get('/add', (req, res) => {
 
-    pedido.create({
+   usuario.create({
     
 
    }).then(() => {
