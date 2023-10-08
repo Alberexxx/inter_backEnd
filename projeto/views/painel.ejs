@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/painel/style.css">
+
+    <title>Painel Administrativo</title>
+
+</head>
+
+<body>
+    <div class="home">
+        <header class="painel-administrativo">
+            <div class="logo">
+                <img src="/img/painel/logo.png" alt="Logo da Loja">
+            </div>
+            <nav style="margin-left: 28vw;">
+                <ul class="opcoes">
+                    <li class="opcao"><a class="link" href="#">Inicio</a></li>
+                    <li class="opcao"><a class="link" href="#">Loja</a></li>
+                    <li class="opcao"><a class="link" href="#">Produtos</a></li>
+                    <li class="opcao"><a class="link" href="#">Sair</a></li>
+                    <li class="opcao"><a class="link" href="#">Login <i class="fas fa-sign-in-alt"></i></a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="titulo">
+            <div id="titulo">
+                <h1>Painel Administrativo</h1>
+            </div>
+        </div>
+
+        <div class="tela-inicial">
+
+            <section class="Visão-Geral">
+                <h2 style="margin-left: 100px;">Visão Geral</h2>
+
+                <div class="Dados">
+                    <div class="info-Dados">
+                        <h3 class="Dados-titulo">Total de Vendas</h3>
+                        <p class="Dados-texto">1.400</p>
+                    </div>
+                </div>
+                <div class="Dados">
+                    <div class="info-Dados">
+                        <h3 class="Dados-titulo">Produtos Cadastrados</h3>
+                        <p class="Dados-texto">500</p>
+                    </div>
+                </div>
+                <div class="Dados">
+                    <div class="info-Dados">
+                        <h3 class="Dados-titulo">Apuração diaria</h3>
+                        <p class="Dados-texto">2.000,00R$</p>
+                    </div>
+                </div>
+            </section>
+            <div style="text-align: center;">
+                <h2 style="margin-left: 25vw;">Vendas Semanais</h2>
+                <section class="grafico">
+                    
+                    <canvas id="graficoVendas"></canvas>
+                    <canvas id="graficoPizza" style="margin-left: 20px;"></canvas>
+                </section>
+            </div>
+        </div>
+        <div class="tabelaPedidos1">
+            <h2 class="titulo2">Pedidos</h2>
+            <table id="tabelaPedidos"></table>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/js/painel/script.js"></script>
+</body>
+
+</html>

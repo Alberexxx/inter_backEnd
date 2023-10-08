@@ -1,0 +1,82 @@
+/* Estilize o container com a classe "container" */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Estilize a imagem do logo */
+.logo img {
+  align-items: center;
+  width: 160px;                  
+  margin-right: 60px;
+}
+
+/* Estilize a tabela */
+table {
+  width: 100%;
+  border-collapse: separate;
+  margin-top: 20px;
+  border-radius: 10px;
+  border-spacing: 5px;
+  background-color: #d6d5d5;
+}
+td{
+  background-color: #ececec;
+}
+
+/* Estilize os cabeçalhos da tabela */
+th {
+  background-color: #0e0d0d;
+  color: #fff;
+  padding: 10px;
+}
+
+/* Estilize as linhas da tabela */
+tr:nth-child(even) {
+  background-color: #e6e3e3;
+}
+
+/* Estilize as células da tabela (td) */
+td {
+  padding: 10px;
+  text-align: center;
+}
+
+/* Estilize os botões com a classe "btn" */
+.btn {
+  background-color: #ec0d05;
+  color: #f3efef;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn.editar {
+  background-color: #d9ff00;
+  color: #0c0c0c;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn.form {
+  background-color: #09ff00;
+  color: #0c0c0c;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Estilize os botões ao passar o mouse por cima */
+.btn:hover {
+  background-color: #940f0a;
+}
+
+.btn.editar:hover {
+  background-color: #99aa04;
+}
+
+.btn.form:hover {
+  background-color: #03f103;
+}

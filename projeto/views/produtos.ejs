@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/produtos/style.css">
+</head>
+<head>
+    <style> 
+   body{
+    background-color: rgb(233, 233, 233);
+   }
+ 
+</style>
+</head>
+<body>
+        <div class="container">
+        <hr>
+        <div class="logo">
+    <img src="/img/login/logo.png" alt="Logo da Loja">
+
+        </hr>   
+<table border="1"> 
+    <thead>
+        <tr>
+        <th>ID</th>
+        <th>NOME DO PRODUTO</th>
+        <th>PREÇO</th>
+        <th>TAMANHO</th>
+        <th>PROMOÇÔES</th>
+        <th>OPÇÔES DE PRODUTO</th>
+        </tr>
+    </thead>
+    <body>
+    <h2>Produtos Cadastrados</h2>            
+    <form method="post" action="/articles/adicionarPromoção" style="display: inline;" onsubmit="confirmaradicionar(event, this)">
+        <input type="hidden" name="id" >
+        <button class="btn form"> Adicionar Produtos</button>
+    </form>
+        <tr>
+        <td>1</td>
+        <td>Camisa</td>
+        <td>$22</td>
+        <td>PP</td>
+        <td>                 
+    <form method="post" action="/articles/adicionarPromoção" style="display: inline;" onsubmit="confirmaradicionar(event, this)">
+        <input type="hidden" name="id" >
+        <button class="btn editar"> Adicionar</button>
+    </form>
+    <form method="post" action="/articles/removerPromoção" style="display: inline;" onsubmit="confirmarremover(event, this)">
+        <input type="hidden" name="id" >
+        <button class="btn btn-danger"> Remover</button>
+    </form>
+
+        </td>
+        <td>
+    <form method="post" action="/articles/delete" style="display: inline;" onsubmit="confirmarDelete(event, this)">
+        <input type="hidden" name="id" >
+        <button class="btn btn-danger"> Deletar</button>
+    </form>
+    <form method="post" action="/articles/delete" style="display: inline;" onsubmit="confirmarDelete(event, this)">
+        <input type="hidden" name="id" >
+        <button class="btn editar"> Editar</button>
+    </form>    
+        </td>
+        </tr>
+        </tr>      
+        <tr>
+        <td>2</td>
+        <td>Camisa</td>
+        <td>$25</td>
+        <td>PP</td>
+        <td> 
+    <form method="post" action="/articles/adicionarPromoção" style="display: inline;" onsubmit="confirmaradicionar(event, this)">
+        <input type="hidden" name="id" >
+        <button class="btn editar"> Adicionar</button>
+    </form>
+    <form method="post" action="/articles/removerPromoção" style="display: inline;" onsubmit="confirmarremover(event, this)">
+        <input type="hidden" name="id" >
+        <button class="btn btn-danger"> Remover</button>
+    </form>  
+        </td>
+        <td>                 
+     <form method="post" action="/articles/delete" style="display: inline;" onsubmit="confirmarDelete(event, this)">
+        <input type="hidden" name="id" >
+        <button class="btn btn-danger"> Deletar</button>
+    </form>  
+    <form method="post" action="/articles/delete" style="display: inline;" onsubmit="confirmarDelete(event, this)">
+        <input type="hidden" name="id">
+        <button class="btn editar"> Editar</button>
+    </form>      
+        </tr>
+</body>
+</table>
+</html>

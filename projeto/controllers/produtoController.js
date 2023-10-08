@@ -30,10 +30,11 @@ router.get('/addProduto', (req, res) => {
 // --------> CRUD <-------- //
 
 //READ
-router.get('/getProducts', (req, res) => {
+router.get('/admin/produtos', (req, res) => {
     product.findAll().then((products) => {
         
-        res.json(products)
+       // res.json(products)
+       res.render('produtos')
     }).catch((err) => {
         res.send(err)
     })
@@ -73,7 +74,7 @@ router.post('/produtos/save', upload.single('foto'), (req, res) => {
 })
 
 //teste
-router.get('/imagem/:id', (req, res) => {
+/*router.get('/imagem/:id', (req, res) => {
     
     product.findByPk(req.params.id).then(produto => {
 
@@ -83,7 +84,7 @@ router.get('/imagem/:id', (req, res) => {
     })
 
   });
-
+*/
 
 //UPDATE
 

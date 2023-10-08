@@ -1,0 +1,159 @@
+/* Estilos globais */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+.tela-inicial{
+    display: flex;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Estilos do cabeçalho */
+.painel-administrativo {
+    background-color: #333;
+    color: #fff;
+    padding:  10px;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    align-items: center;
+    width: 120px; /* Largura da logo */
+    margin-right: 10px;
+}
+
+.titulo{
+    margin-top: -25px;
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+}
+
+#painel{
+    margin-left: 30vw;
+}
+
+.opcoes {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.grafico{
+    margin-left: 30px;
+    margin-top: 50px;
+    width: 45vw;
+    height: 25vw;
+    display: flex;
+}
+
+.Visão-Geral{
+    margin-left: -60px;
+}
+
+.opcao {
+    margin-right: 20px;
+}
+
+.link {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Resto dos estilos conforme necessário */
+.Dados {
+    border: 2px solid #000000; /* Adicione uma borda sólida */
+    border-radius: 10px; /* Cantos arredondados */
+    margin-bottom: 20px;
+    width: 160px;
+    margin-left: 100px;
+    text-align: center;
+  
+}
+.titulo2{
+    margin-top: 180px; 
+    text-align: center;
+}
+#tabelaPedidos{
+    border-collapse: collapse;
+    width: 97%;
+    background-color: #FFFFFF;
+    margin-right: 150px;
+    margin-left: 20px;   
+  }
+  .tabelaPedidos1{
+    margin-top: -200px; 
+  }
+  #tabelaPedidos th, #tabelaPedidos td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+
+/* Resto dos estilos conforme necessário */
+
+/* Estilos para telas menores (responsividade) */
+@media (max-width: 600px) {
+    .home {
+        flex-direction: column; /* Altera a direção dos elementos para empilhamento */
+        text-align: center; /* Centraliza o texto no cabeçalho */
+        padding: auto;
+        display: flex;
+    }
+    .painel-administrativo{
+        flex-direction: column;
+        width: auto;
+    }
+    .theme-toggle {
+        margin-top: 10px; /* Espaçamento entre o ícone de tema e o título */
+    }
+    .Dados{
+        margin-left: 50vw ;
+    }
+
+    .logo img {
+        margin-bottom: 10px; /* Espaçamento entre o logotipo e o título */
+    }
+    .tela-inicial{
+        flex-direction: column;
+    }
+
+    .opcoes {
+        flex-direction: column; /* Empilha as opções de menu */
+        margin-top: 10px; /* Espaçamento entre as opções de menu */
+    }
+
+    .opcao {
+        margin-right: 0; /* Remove a margem direita das opções de menu */
+        margin-bottom: 10px; /* Espaçamento entre as opções de menu */
+    }
+
+    .grafico{
+        flex-direction: column; /* Altera a direção dos elementos para empilhamento */
+        width: 80vw;
+        height: 90vw;
+    }
+    .tabelaPedidos1{
+        flex-direction: column;
+        margin-right: 1000px;
+        margin-top: -70px;
+    }
+    .titulo{
+        margin-top: -20px;
+        text-align: center;
+        background-color: #333;
+        color: #fff;
+    }
+    
+}
+
+
