@@ -6,7 +6,7 @@ const userAdmin = require("../models/userAdmin")
 // --------> CRUD <-------- //
 
 //READ
-router.get('/painel', (req, res) => {
+router.get('/admin/painel', (req, res) => {
    res.render('painel')
 })
 

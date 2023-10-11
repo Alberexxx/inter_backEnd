@@ -1,12 +1,17 @@
 const express = require("express");
 const app = express();
 const connection = require('./database/connection')
-
+const session = require("express-session")
 
 app.use(express.urlencoded({ extended: true })); // Para analisar dados de formulário
 app.use(express.json()); //Para analisar dados JSON
 
-
+//session
+app.use(
+    session({
+    secret: "aojd5emfe2cmckeol78dsnkkzmajqnuwbuw",
+    cookie: { maxAge: 604800}
+}))
 
 
 
@@ -33,7 +38,7 @@ const productController = require('./controllers/produtoController')
 const avaliacao_siteController = require('./controllers/avaliacao_siteController')
 const carrinhoController = require('./controllers/carrinhoController')
 const categoriaController = require('./controllers/categoriaController')
-const userController = require('./controllers/usuarioController')
+const usuarioController = require('./controllers/usuarioController')
 const comentario_produtoController = require('./controllers/comentario_produtoController')
 const userAdminController = require('./controllers/userAdminController')
 const pedidoController = require('./controllers/pedidoController')
@@ -59,7 +64,7 @@ connection
     })
 
 //utilizacao dos roteadores
-//app.use('/', userController)
+app.use('/', usuarioController)
 //app.use('/', avaliacao_siteController)
 app.use('/', carrinhoController)
 app.use('/', categoriaController)
@@ -74,10 +79,8 @@ app.use("/", loginController)
 
 
 // Rotas
-app.get("/",(req, res) => {
-    product.findAll().then(produto => {
-        res.render("index", {produto: produto})
-    })
+app.get("/home",(req, res) => {
+    res.render("index")
     
 });
 

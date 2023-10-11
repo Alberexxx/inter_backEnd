@@ -21,7 +21,7 @@
         border-radius: 30px;
         padding: 3%;
         box-shadow: 1px 1px 20px 4px rgb(91, 228, 87);
-        
+        display: inline-block;
        /** margin-left: -15vw; **/
     }
     

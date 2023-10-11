@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const carrinho = require("../models/carrinho")
 const produto = require("../models/product")
+const usuario = require("../models/usuario")
 
 router.get('/carrinho', (req, res) => {
     produto.findAll().then((produto) => {
@@ -14,12 +15,14 @@ router.get('/carrinho', (req, res) => {
    
 })
 
-
+router.post("/outros-dados" , (req, res) => {
+    
+})
 
 // --------> CRUD <-------- //
 
 //READ
-router.get('/get', (req, res) => {
+router.get('', (req, res) => {
     carrinho.findAll().then((   ) => {
         
         
@@ -30,7 +33,7 @@ router.get('/get', (req, res) => {
 
 
 //CREATE
-router.get('/add', (req, res) => {
+router.get('', (req, res) => {
 
    carrinho.create({
     

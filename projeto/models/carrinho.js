@@ -8,10 +8,10 @@ const carrinho = connection.define("carrinho", {
         primaryKey: true
     }, produtos: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
     }, valorTotal: {
         type: Sequelize.DECIMAL,
-        allowNull: false
+        allowNull: true
     }
 
 })

@@ -3,8 +3,8 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.changeColumn('products', 'foto', {
-      type: Sequelize.BLOB("long"), // Novo tipo de dados
+    await queryInterface.addColumn('products', 'categoria', {
+      type: Sequelize.STRING, // Novo tipo de dados
     });
   },
 

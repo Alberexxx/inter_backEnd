@@ -15,6 +15,10 @@
 </style>
 </head>
 <body>
+
+    <%- include('./partials/navbar.ejs') %>
+
+
         <div class="container">
         <hr>
         <div class="logo">
@@ -27,70 +31,39 @@
         <th>ID</th>
         <th>NOME DO PRODUTO</th>
         <th>PREÇO</th>
-        <th>TAMANHO</th>
-        <th>PROMOÇÔES</th>
+        <th>DESCRIÇÃO</th>
+        <th>COR</th>
         <th>OPÇÔES DE PRODUTO</th>
         </tr>
     </thead>
     <body>
     <h2>Produtos Cadastrados</h2>            
-    <form method="post" action="/articles/adicionarPromoção" style="display: inline;" onsubmit="confirmaradicionar(event, this)">
-        <input type="hidden" name="id" >
-        <button class="btn form"> Adicionar Produtos</button>
-    </form>
-        <tr>
-        <td>1</td>
-        <td>Camisa</td>
-        <td>$22</td>
-        <td>PP</td>
-        <td>                 
-    <form method="post" action="/articles/adicionarPromoção" style="display: inline;" onsubmit="confirmaradicionar(event, this)">
-        <input type="hidden" name="id" >
-        <button class="btn editar"> Adicionar</button>
-    </form>
-    <form method="post" action="/articles/removerPromoção" style="display: inline;" onsubmit="confirmarremover(event, this)">
-        <input type="hidden" name="id" >
-        <button class="btn btn-danger"> Remover</button>
-    </form>
+    
+        <button class="btn form" > <a href="/admin/addProduto">Adicionar Produtos</a></button>
 
-        </td>
-        <td>
-    <form method="post" action="/articles/delete" style="display: inline;" onsubmit="confirmarDelete(event, this)">
-        <input type="hidden" name="id" >
-        <button class="btn btn-danger"> Deletar</button>
-    </form>
-    <form method="post" action="/articles/delete" style="display: inline;" onsubmit="confirmarDelete(event, this)">
-        <input type="hidden" name="id" >
-        <button class="btn editar"> Editar</button>
-    </form>    
-        </td>
-        </tr>
-        </tr>      
-        <tr>
-        <td>2</td>
-        <td>Camisa</td>
-        <td>$25</td>
-        <td>PP</td>
-        <td> 
-    <form method="post" action="/articles/adicionarPromoção" style="display: inline;" onsubmit="confirmaradicionar(event, this)">
-        <input type="hidden" name="id" >
-        <button class="btn editar"> Adicionar</button>
-    </form>
-    <form method="post" action="/articles/removerPromoção" style="display: inline;" onsubmit="confirmarremover(event, this)">
-        <input type="hidden" name="id" >
-        <button class="btn btn-danger"> Remover</button>
-    </form>  
-        </td>
-        <td>                 
-     <form method="post" action="/articles/delete" style="display: inline;" onsubmit="confirmarDelete(event, this)">
-        <input type="hidden" name="id" >
-        <button class="btn btn-danger"> Deletar</button>
-    </form>  
-    <form method="post" action="/articles/delete" style="display: inline;" onsubmit="confirmarDelete(event, this)">
-        <input type="hidden" name="id">
-        <button class="btn editar"> Editar</button>
-    </form>      
-        </tr>
+
+    <% produtos.forEach(produto => { %>
+            </form>
+            <tr>
+                <td><%= produto.id_produto %></td>
+                <td><%= produto.nome_produto %></td>
+                <td>R$<%= produto.preco %></td>
+                <td><%= produto.descricao %></td>
+                <td><%= produto.cor %> </td>
+                    
+                <td>
+                    <form method="post" action="/admin/produtos/deletar" style="display: inline;">
+
+                        <input type="hidden" name="id" value="<%= produto.id_produto %>">
+                        <button class="btn btn-danger"> Deletar</button>
+
+                    </form>
+                        <button class="btn editar"> Editar</button>
+                   
+            </td>
+    <% }) %>
+    
+
 </body>
 </table>
 </html>

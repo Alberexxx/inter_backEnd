@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const pedido = require("../models/pedido")
+const userAuht = require('../middlewares/userAuth')
 
 
 // --------> CRUD <-------- //

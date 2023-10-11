@@ -11,6 +11,10 @@
 </head>
 
 <body>
+
+    <%- include('./partials/navbar.ejs') %>
+
+
     <div class="signup-body">
         <div class="container">
             <div class="login-box">
@@ -18,7 +22,7 @@
                     <h2>Adicionar Produtos</h2>
                     <p>complete as informações abaixo! </p>
                 </div>
-                <form id="signup-form">
+                <form id="signup-form" action="/produtos/save" method="post" enctype="multipart/form-data">
                     <div class="div-form">
                         <div class="div1">
                             <div class="div-form">
@@ -67,6 +71,8 @@
                                         <input type="text" name="nome" id="nome" placeholder="Nome do Produto" required>
                                     </div>
                                     <div class="input-container">
+                                        <label for="descricao">descrição</label>
+                                        <input type="text" name="descricao" id="" placeholder="digite uma descricao para o produto">
                                         <label for="cor">Cor</label>
                                         <input type="text" name="cor" id="cor" placeholder="Digite a cor" required>
                                     </div>
@@ -77,14 +83,10 @@
                                     </div>
                                     <div class="input-container">
                                         <label for="valor">Valor</label>
-                                        <input type="number" min="1" id="valor" name="valor" step="0.01"
+                                        <input type="number" min="1" id="valor" name="preco" step="0.01"
                                             placeholder="Digite o Valor" required>
                                     </div>
-                                    <div class="input-container">
-                                        <label for="estoque">Estoque</label>
-                                        <input type="number" min="10" max="100" name="estoque" id="estoque"
-                                            placeholder="Digite a Quantidade" required>
-                                    </div>
+                                    
                                     <div class="input-container">
                                         <input type="submit" value=" cadastrar produto ">
                                     </div>

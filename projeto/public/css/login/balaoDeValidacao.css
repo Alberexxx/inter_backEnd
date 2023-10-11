@@ -1,0 +1,43 @@
+ /* Estilize o balão informativo */
+ .balao-informativo {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    
+}
+
+.balao-informativo .icone {
+    width: 20px;
+    height: 20px;
+    background-color: #258742;
+    color: #fff;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 14px;
+    line-height: 20px;
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.balao-informativo .dica {
+    display: none;
+    position: absolute;
+    background-color: #000000;
+    color: #fff;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 14px;
+    z-index: 1;
+    width: 200px;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+
+}
+
+.balao-informativo:hover .dica {
+    display: none;
+}

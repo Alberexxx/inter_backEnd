@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        /* Estilize o balão informativo */
+        .balao-informativo {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            margin-left: 300px;
+        }
+
+        .balao-informativo .icone {
+            width: 20px;
+            height: 20px;
+            background-color: #258742;
+            color: #fff;
+            text-align: center;
+            border-radius: 50%;
+            font-size: 14px;
+            line-height: 20px;
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .balao-informativo .dica {
+            display: none;
+            position: absolute;
+            background-color: #000000;
+            color: #fff;
+            border-radius: 4px;
+            padding: 10px;
+            font-size: 14px;
+            z-index: 1;
+            width: 200px;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+             display: block;
+       
+        }
+
+        .balao-informativo:hover .dica {
+            display: none;
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+    <h1>
+        ajax teste
+
+    </h1>
+
+
+    <input type="email" id="caixaTexto" name="caixaTextoName">
+
+    <br>
+    <br>
+
+    <div class="balao-informativo" id="balao">
+        <span class="icone">!</span>
+        <div class="dica" id="conteudo"></div>
+    </div>
+
+    <script>
+       
+        var caixaTexto = document.getElementById("caixaTexto");
+
+        
+
+        caixaTexto.addEventListener('input', () => {
+
+            var conteudo = document.getElementById("conteudo");
+            var inputId = caixaTexto.value;
+            
+            const url = '/validaEmail';
+           
+            const requestOptions = {
+                method: 'POST', 
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ inputId: inputId})
+            };
+
+
+            fetch(url, requestOptions)
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error('Erro na solicitação.');
+                    }
+                    return response.text(); // Usar .text() em vez de .json()
+                })
+                .then((data) => {
+                    renderConteudo(data); // Exibir o texto normal
+                })
+                .catch((error) => {
+                    console.error('Erro:', error);
+                });
+        });
+
+        function renderConteudo(texto) {
+            conteudo.innerHTML = texto;
+        }
+
+        
+
+        
+
+
+    </script>
+</body>
+
+</html>

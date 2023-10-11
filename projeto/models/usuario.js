@@ -12,22 +12,27 @@ const usuario = connection.define("usuarios", {
         primaryKey: true
     }, nome: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
     }, email: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
+
     }, senha: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
+
     }, foto: {
         type: Sequelize.STRING,
         allowNull: true
+
     }, sexo: {
         type: Sequelize.STRING, 
-        allowNull: false
+        allowNull: true
+
     }, telefone: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
+
     }
 
 })

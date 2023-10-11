@@ -15,7 +15,7 @@ const upload = multer({ storage });
 
 
 
-router.get('/addProduto', (req, res) => {
+router.get('/admin/addProduto', (req, res) => {
     res.render("addProduto")
  })
  
@@ -31,10 +31,10 @@ router.get('/addProduto', (req, res) => {
 
 //READ
 router.get('/admin/produtos', (req, res) => {
-    product.findAll().then((products) => {
+    product.findAll().then((produtos) => {
         
-       // res.json(products)
-       res.render('produtos')
+       res.render('produtos', {produtos: produtos})
+
     }).catch((err) => {
         res.send(err)
     })
@@ -45,8 +45,12 @@ router.get('/admin/produtos', (req, res) => {
 router.post('/produtos/save', upload.single('foto'), (req, res) => {
    var nome_produto = req.body.nome
    var preco = req.body.preco
-   var desc = req.body.desc
- 
+   var descricao = req.body.descricao
+   var tamanho = req.body.tamanho
+   var modelo = req.body.modelo
+   var cor = req.body.cor
+   var categoria = req.body.categoria
+   //var estoque = req.body.estoque
 
   if (!req.file) {
 
@@ -58,16 +62,20 @@ router.post('/produtos/save', upload.single('foto'), (req, res) => {
    product.create({
     nome_produto: nome_produto,
     preco: preco,
-    descricao: desc,
+    descricao: descricao,
+    tamanho: tamanho,
+    modelo: modelo,
+    cor: cor, 
+    nome_categoria: categoria,
     originalname: originalname,
     mimetype: mimetype,
     foto: buffer
 
    }).then(() => {
-    console.log(req.file);
-    res.send(req.file)
+   
+    res.redirect('/admin/produtos')
 
-   //res.redirect("/getProducts")
+   
    }).catch((err) => {
     res.send(err)
    })
@@ -91,19 +99,19 @@ router.post('/produtos/save', upload.single('foto'), (req, res) => {
 
 //DELETE
 
-router.post("/carrinho/delete", (req,res) => {
+router.post("/admin/produtos/deletar", (req,res) => {
     var id = req.body.id;
 
     if (id != undefined ) {
 
         if(!isNaN(id)){
 
-            Category.destroy({
+            product.destroy({
                 where: {
-                    id:id
+                    id_produto:id
                 }
             }).then(() => {
-                res.redirect("/admin/categories")
+                res.redirect("/admin/produtos")
             })
 
 

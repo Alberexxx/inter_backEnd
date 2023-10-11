@@ -80,3 +80,7 @@ td {
 .btn.form:hover {
   background-color: #03f103;
 }
+
+a {
+  text-decoration: none;
+}

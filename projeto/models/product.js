@@ -27,12 +27,24 @@ const Product = connection.define("products", {
     }, originalname: {
         type: Sequelize.STRING,
         allowNull: true
+    }, tamanho: {
+        type: Sequelize.STRING,
+        allowNull: true
+    }, modelo: {
+        type: Sequelize.STRING,
+        allowNull: true
+    }, cor: {
+        type: Sequelize.STRING,
+        allowNull: true
+    }, nome_categoria: {
+        type: Sequelize.STRING,
+        allowNull: true
     }
 })
 
 //relacionamentos
 Product.belongsTo(Categoria);
-Categoria.hasMany(Product);
+//Categoria.hasMany(Product);
 
  
 //Product.sync({force: true})
