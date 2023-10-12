@@ -122,7 +122,7 @@ button:hover {
     letter-spacing: 2px;
     transition: letter-spacing 0.3s ease;
     background-color: transparent;
-    border: 2px solid #27b737;
+    /*border: 2px solid #27b737; */
     border-radius: 12px;
     color: #27b737;
 }

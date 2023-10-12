@@ -130,7 +130,7 @@ router.post('/validaEmail', (req, res) => {
 
   usuario.findOne({ where: { email: email } }).then((user) => {
     if (user == undefined) { 
-      res.send("o email está disponivel!")
+      res.send("")
     } else {
       res.send("o email já está em uso.")
     }

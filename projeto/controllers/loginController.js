@@ -40,11 +40,45 @@ router.post("/authenticate", (req, res) => {
      } else {
        res.redirect('/login')
 
-       
      }
    })
  })
 
+router.post("/verificaEmailSenha", (req, res) => {
+  var email = req.body.email
+  var senha = req.body.senha
+
+  usuario.findOne({where: {email: email}}).then(user => {
+    if(user != undefined) {
+
+      var correct = bcrypt.compareSync(senha, user.senha)
+
+      if(correct) {
+        res.send("")
+      } else {
+        res.send("senha ou email incorretos")
+      }
+
+    } else {
+      res.send("email ou senha incorretos")
+    }
+  })
+
+})
+
+router.post("/verificaSenha", (req, res) => {
+  var email = req.body.email;
+  usuario.findOne({where: {email: email}}).then(user => {
+    if(user != undefined) {
+      res.send("não existe uma conta com esse email ")
+    } else {
+      res.send("")
+    }
+  })
+
+})
+
+//testes
  router.get('/session', (req, res) => {
    
    req.session.dados = {nome: "Alberes"}
@@ -56,6 +90,9 @@ router.post("/authenticate", (req, res) => {
  router.get("/session/get" , (req, res) => {
    res.json({nome: req.session.dados})
  })
+
+
+
 
 //CREATE
 router.get('/add', (req, res) => {
