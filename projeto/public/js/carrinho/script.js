@@ -27,6 +27,9 @@ document.addEventListener("DOMContentLoaded", function () {
     function updateTotal(subtotal) {
         const totalElement = document.querySelector("footer span:nth-child(2)");
         totalElement.textContent = `R$ ${subtotal.toFixed(2)}`;
+    
+        var valor = document.getElementById('conteudoHidden')
+        valor.value = subtotal.toFixed(2)
     }
 
     //  botão de remover
@@ -67,3 +70,5 @@ function darkMode() {
     var element = document.body;
     element.classList.toggle("dark-mode");
   }
+
+

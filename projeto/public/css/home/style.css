@@ -229,7 +229,7 @@ header.sticky {
 }
 
 .row img {
-    width: 100%;
+    width: 280px;
     height: auto;
     transition: all .40s;
 }
@@ -250,6 +250,12 @@ header.sticky {
     padding: 3px 10px;
     border-radius: 2px;
 }
+a {
+    color: var(--color-whiter);
+}
+a:hover {
+    color: var(--color-green);
+}
 
 .heart-icon {
     position: absolute;
@@ -263,6 +269,7 @@ header.sticky {
 
 .heart-icon:hover {
     color: var(--color-green);
+    cursor: pointer;
 }
 
 .ratting i {

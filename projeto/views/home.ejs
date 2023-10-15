@@ -8,6 +8,7 @@
     <title>Ecommerce</title>
     <!-- CSS-link -->
     <link rel="stylesheet" href="/css/home/style.css">
+    <link rel="stylesheet" href="/css/home/popup.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,6 +26,8 @@
     <div class="cupom-text">
         <p>30% OFF utilizando o cupom: UNIBRA.</p>
     </div>
+
+   
     <!--<header id="navbar">
 
         <ul class="navmenu">
@@ -67,186 +70,52 @@
     </section>
 
     <!-- seção de produtos  -->
-    <section class="trending-product" id="trending">
-        <div class="center-text">
-            <h2>Produtos <span>Em Alta</span></h2>
-        </div>
+ 
+    <h2>Exemplo de mensagem pop-up</h2>
 
-        <div class="products">
-            <div class="row">
-                <img src="imagem/1.jpg" alt="">
-                <div class="product-text">
-                    <h5>Oferta</h5>
+  
+    <div id="popup" class="popup" style="display:none;">
+      Produto adicionado ao carrinho!
+    </div>
+        
+            <!-- seção de produtos  -->
+            <section class="trending-product" id="trending">
+                <div class="center-text">
+                    <h2>Produtos <span>Em Alta</span></h2>
                 </div>
-                <div class="heart-icon">
-                    <i class='bx bx-heart'></i>
+                <div class="products">
+                <% produtos.forEach(produto => { %>
+                 
+                    
+                        <div class="row">
+                            <img src="/imagem/<%= produto.id_produto %>" alt="">
+                            <div class="product-text">
+                                <h5>Oferta</h5>
+                            </div>
+                            <div class="heart-icon">
+                               <i class='bx bx-heart' id="<%= produto.id_produto %> " onclick="mudarCor('<%= produto.id_produto %>', '<%= produto.preco %>')" id="<%= produto.id_produto %>"  ></i>
+                            </div>
+                            <div class="ratting">
+                                <i class='bx bx-star'></i>
+                                <i class='bx bx-star'></i>
+                                <i class='bx bx-star'></i>
+                                <i class='bx bx-star'></i>
+                                <i class='bx bxs-star-half'></i>
+                            </div>
+            
+                            <div class="price">
+                                <h4> <%= produto.nome_produto %></h4>
+                                <p>R$<%= produto.preco %>,00 </p>
+                            </div>
+                        </div>
+            
+                <% }) %>
+                
                 </div>
-                <div class="ratting">
-                    <i class='bx bx-star'></i>
-                    <i class='bx bx-star'></i>
-                    <i class='bx bx-star'></i>
-                    <i class='bx bx-star'></i>
-                    <i class='bx bxs-star-half'></i>
-                </div>
+        
+            </section>
 
-                <div class="price">
-                    <h4>T-SHIRT "THERMAL VISION" POST-MODERN ART</h4>
-                    <p>R$99 - R$129</p>
-                </div>
-            </div>
-
-            <div class="row">
-                <img src="imagem/2.jpg" alt="">
-                <div class="product-text">
-                    <h5>New</h5>
-                </div>
-                <div class="heart-icon">
-                    <i class='bx bx-heart'></i>
-                </div>
-                <div class="ratting">
-                    <i class='bx bx-star'></i>
-                    <i class='bx bx-star'></i>
-                    <i class='bx bx-star'></i>
-                    <i class='bx bx-star'></i>
-                    <i class='bx bxs-star-half'></i>
-                </div>
-
-                <div class="price">
-                    <h4>T-SHIRT "CERTIFIED LOVER"</h4>
-                    <p>R$99 - R$129</p>
-                </div>
-            </div>
-
-            <div class="row">
-                <img src="imagem/3.jpg" alt="">
-
-                <div class="heart-icon">
-                    <i class='bx bx-heart'></i>
-                </div>
-                <div class="ratting">
-                    <i class='bx bx-star'></i>
-                    <i class='bx bx-star'></i>
-                    <i class='bx bx-star'></i>
-                    <i class='bx bx-star'></i>
-                    <i class='bx bxs-star-half'></i>
-                </div>
-
-                <div class="price">
-                    <h4>T-SHIRT "TAPPED HEART" CERTIFIED LOVER</h4>
-                    <p>R$99 - R$129</p>
-                </div>
-            </div>
-
-            <div class="row">
-                <img src="imagem/4.jpg" alt="">
-                <div class="product-text">
-                    <h5>Hot</h5>
-                </div>
-                <div class="heart-icon">
-                    <i class='bx bx-heart'></i>
-                </div>
-                <div class="ratting">
-                    <i class='bx bx-star'></i>
-                    <i class='bx bx-star'></i>
-                    <i class='bx bx-star'></i>
-                    <i class='bx bx-star'></i>
-                    <i class='bx bxs-star-half'></i>
-                </div>
-
-                <div class="price">
-                    <h4>T-SHIRT "CERTIFIED LOVER" PRETA</h4>
-                    <p>R$99 - R$129</p>
-                </div>
-            </div>
-
-            <div class="row">
-                <img src="imagem/5.jpg" alt="">
-
-                <div class="heart-icon">
-                    <i class='bx bx-heart'></i>
-                </div>
-                <div class="ratting">
-                    <i class='bx bx-star'></i>
-                    <i class='bx bx-star'></i>
-                    <i class='bx bx-star'></i>
-                    <i class='bx bx-star'></i>
-                    <i class='bx bxs-star-half'></i>
-                </div>
-
-                <div class="price">
-                    <h4>T-SHIRT "HEARTS" CERTIFIED LOVER</h4>
-                    <p>R$99 - R$129</p>
-                </div>
-            </div>
-
-            <div class="row">
-                <img src="imagem/6.jpg" alt="">
-                <div class="product-text">
-                    <h5>Hot</h5>
-                </div>
-                <div class="heart-icon">
-                    <i class='bx bx-heart'></i>
-                </div>
-                <div class="ratting">
-                    <i class='bx bx-star'></i>
-                    <i class='bx bx-star'></i>
-                    <i class='bx bx-star'></i>
-                    <i class='bx bx-star'></i>
-                    <i class='bx bxs-star-half'></i>
-                </div>
-
-                <div class="price">
-                    <h4>T-SHIRT "KING" POST-MODERN ART</h4>
-                    <p>R$99 - R$129</p>
-                </div>
-            </div>
-
-            <div class="row">
-                <img src="imagem/7.jpg" alt="">
-                <div class="product-text">
-                    <h5>Sale</h5>
-                </div>
-                <div class="heart-icon">
-                    <i class='bx bx-heart'></i>
-                </div>
-                <div class="ratting">
-                    <i class='bx bx-star'></i>
-                    <i class='bx bx-star'></i>
-                    <i class='bx bx-star'></i>
-                    <i class='bx bx-star'></i>
-                    <i class='bx bxs-star-half'></i>
-                </div>
-
-                <div class="price">
-                    <h4>T-SHIRT "vision" POST-MODERN ART</h4>
-                    <p>R$99 - R$129</p>
-                </div>
-            </div>
-
-            <div class="row">
-                <img src="imagem/8.jpg" alt="">
-                <div class="product-text">
-                    <h5>Sale</h5>
-                </div>
-                <div class="heart-icon">
-                    <i class='bx bx-heart'></i>
-                </div>
-                <div class="ratting">
-                    <i class='bx bx-star'></i>
-                    <i class='bx bx-star'></i>
-                    <i class='bx bx-star'></i>
-                    <i class='bx bx-star'></i>
-                    <i class='bx bxs-star-half'></i>
-                </div>
-
-                <div class="price">
-                    <h4>T-SHIRT "FACE" POST-MODERN ART</h4>
-                    <p>R$99 - R$129</p>
-                </div>
-            </div>
-        </div>
-
-    </section>
+    
 
     <!-- seção-avaliação-clientes -->
 
@@ -260,6 +129,7 @@
             <p>Instrutor Pedagogico</p>
         </div>
     </section>
+    
 
     <!-- seção de update -->
     <section class="Update-news">
@@ -353,6 +223,7 @@
     
     <script src="js/home/script.js"></script>
     <script src="https://kit.fontawesome.com/998c60ef77.js" crossorigin="anonymous"></script>
+    <script src="js/home/ajax.js"></script>
 
 </body>
 

@@ -9,8 +9,8 @@ body {
   font-family: "Lato", sans-serif;
 }
 body > header {
-  background: #eee;
-  color: rgb(255, 255, 255);
+  background: #000000;
+  color: #000000;
   font-size: 24px;
   padding: 20px 0;
   border: none;
@@ -18,14 +18,14 @@ body > header {
   justify-content: center;
 }
 body > main {
-  background: #eee;
+  background: #000000;
   padding: 0 30px 30px;
 }
 body > main .page-title {
   font-size: 40px;
   padding: 50px 0;
   text-align: center;
-  color: #080808;
+  color: #fff7f7;
 }
 body > main .content {
   display: flex;
@@ -37,23 +37,6 @@ body > main .content aside {
   min-width: 250px;
 }
 
-.dark-mode {
-  justify-content: right;
-  background-color: inherit;
-  color: rgb(0, 0, 0);
-  border: none;
-}
-.dark-mode main {
-  background-color: #eee;
-}
-.dark-mode > header {
-  background-color: #000000;
-  border: none;
-}
-.dark-mode > header > dark-mode {
-  border: none;
-}
-
 button {
   cursor: pointer;
   font-family: "Lato", sans-serif;
@@ -62,9 +45,10 @@ button {
 table {
   width: 100%;
   border-collapse: collapse;
+  color: white;
 }
 table thead tr {
-  border-bottom: 3px solid #918484;
+  border-bottom: 3px solid #7CFC00;
 }
 table thead tr th {
   text-align: left;
@@ -73,32 +57,38 @@ table thead tr th {
   color: #7CFC00;
 }
 table tbody tr {
-  border-bottom: 3px solid #918484;
+  border-bottom: 3px solid #7CFC00;
 }
 table tbody tr:last-child {
   border: 0;
+  color: white;
 }
 table tbody tr td {
   padding: 30px 0;
+  color: white;
 }
 
 .product {
   display: flex;
   align-items: center;
+  color: white;
 }
 .product img {
   border-radius: 6px;
 }
 .product .info {
   margin-left: 20px;
+  color: white;
 }
 .product .info .name {
   font-size: 20px;
   margin-bottom: 10px;
+  color: white;
 }
 
 .qty {
-  background: #eee;
+  background: #7CFC00;
+  color: white;
   display: inline-flex;
   padding: 0 0;
   justify-content: space-around;
@@ -125,7 +115,7 @@ table tbody tr td {
 }
 
 .remove {
-  background: #eee;
+  background: #ffffff;
   border: 0;
   width: 30px;
   height: 30px;
@@ -136,7 +126,7 @@ table tbody tr td {
   font-size: 20px;
 }
 .remove:hover {
-  background: #ddd;
+  background: #000000;
 }
 
 aside {
@@ -144,14 +134,14 @@ aside {
 }
 aside .box {
   margin-bottom: 15px;
-  border: 1px solid #ccc;
-  background: #eee;
-  color: #222;
+  border: 1px solid #ffffff;
+  background: rgb(255, 255, 255);
+  color: #000000;
 }
 aside .box header {
   padding: 15px 20px;
   font-size: 18px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #ffffff;
 }
 aside .box .info {
   padding: 20px;
@@ -161,7 +151,7 @@ aside .box .info > div {
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
-  color: #555;
+  color: #000000;
 }
 aside .box .info > div:last-child {
   margin: 0;
@@ -196,39 +186,29 @@ aside > button:hover {
   background: #3bc55b;
 }
 
-@media (max-width: 786px) {
+@media (max-width: 800px) {
   .content {
     flex-direction: column;
-    width: 60%;
-  }
-  main {
-    background-color: #7d807d;
-  }
-  aside {
-    width: 60%;
+    width: 10%;
   }
   .qty {
-    width: 80%;
+    width: 70%;
     padding: 5px;
   }
   .product {
     width: 20%;
     font-size: small;
   }
-  img {
-    border-radius: 2px;
-    width: 50%;
-    border: none;
-  }
   th {
     padding-bottom: 40px;
     padding: 4px;
   }
-  .product {
-    width: 100%;
-  }
   .name {
     display: none;
   }
-}/*# sourceMappingURL=styles.css.map */
-
+}
+@media screen and (orientation: landscape) {
+  .content {
+    flex-direction: row;
+  }
+}/*# sourceMappingURL=dark.css.map */

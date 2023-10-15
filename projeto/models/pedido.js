@@ -20,6 +20,10 @@ const Pedido = connection.define("Pedidos", {
     }, endereco: {
         type: Sequelize.STRING,
         allowNull: true
+    }, formaPagamento: {
+        type: Sequelize.STRING
+    }, ValorTotal: {
+        type: Sequelize.STRING
     }
 
 })

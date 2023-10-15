@@ -18,8 +18,8 @@ app.use(
 
 
 //import dos models
-const product = require('./models/product')
-const user = require('./models/usuario')
+const produto = require('./models/product')
+const usuario = require('./models/usuario')
 const userAdmin = require('./models/userAdmin')
 const pedido = require('./models/pedido')
 const comentario_produto = require('./models/comentario_produto')
@@ -45,6 +45,8 @@ const pedidoController = require('./controllers/pedidoController')
 const enderecoController = require('./controllers/enderecoController')
 const pagamentoController = require("./controllers/pagamentoController")
 const loginController = require("./controllers/loginController")
+const itemCarrinho = require("./controllers/itemCarrinhoController")
+
 
 
 //view engine
@@ -75,12 +77,21 @@ app.use('/', userAdminController)
 //app.use('/', enderecoController)
 app.use("/", pagamentoController)
 app.use("/", loginController)
+app.use("/", itemCarrinho)
+
 
 
 
 // Rotas
 app.get("/home",(req, res) => {
-    res.render("home")
+    produto.findAll().then((produtos) => {
+
+        res.render("home", {produtos: produtos})
+        
+    }).catch((err) => {
+        res.send(err)
+    })
+   
     
 });
 

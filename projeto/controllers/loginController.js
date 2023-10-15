@@ -28,8 +28,9 @@ router.post("/authenticate", (req, res) => {
  
        if (correct) {
          req.session.usuario = {
-           id: user.id,
-           email: user.email
+           id: user.id_usuario,
+           email: user.email,
+           nome: user.nome
          }
          res.redirect('/home')
          
@@ -88,8 +89,13 @@ router.post("/verificaSenha", (req, res) => {
  })
 
  router.get("/session/get" , (req, res) => {
-   res.json({nome: req.session.dados})
+   res.json( req.session.usuario)
  })
+
+ router.get("/session/get/id" , (req, res) => {
+  res.json( req.session.usuario.id)
+})
+
 
 
 

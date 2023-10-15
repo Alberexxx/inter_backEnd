@@ -1,0 +1,89 @@
+body {
+  font-family: "Jost", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+}
+body > header {
+  background: #000000;
+  color: rgb(255, 255, 255);
+  font-size: 24px;
+  padding: 20px 0;
+  border: none;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5%;
+}
+
+h1 {
+  text-align: center;
+  color: #000000;
+}
+
+.ordem-lista {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ordem-item {
+  position: relative;
+  width: 300px;
+  margin: 10px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  box-shadow: 0 0 5px #7CFC00;
+  border-radius: 5px;
+}
+.ordem-item .status-process {
+  color: rgb(0, 0, 0);
+  position: absolute;
+  bottom: 82px;
+  right: 10px;
+  padding-left: 30px;
+}
+.ordem-item .status-transito {
+  color: rgb(19, 92, 52);
+  position: absolute;
+  bottom: 82px;
+  right: 10px;
+  padding-left: 30px;
+}
+.ordem-item .status-entregue {
+  color: rgb(11, 182, 11);
+  position: absolute;
+  bottom: 82px;
+  right: 10px;
+  padding-left: 30px;
+}
+.ordem-item .status-cancel {
+  color: rgb(173, 13, 13);
+  position: absolute;
+  bottom: 82px;
+  right: 10px;
+  padding-left: 30px;
+}
+
+.ordem-item h3 {
+  color: #333;
+}
+
+.ordem-item p {
+  margin-top: 5px;
+  color: #000000;
+}
+
+@media (max-width: 786px) {
+  .container {
+    border-radius: 13px;
+  }
+}/*# sourceMappingURL=dark.css.map */

@@ -23,10 +23,6 @@ router.get('/admin/addProduto', (req, res) => {
 
 
 
-
-
-
-
 // --------> CRUD <-------- //
 
 //READ
@@ -82,7 +78,7 @@ router.post('/produtos/save', upload.single('foto'), (req, res) => {
 })
 
 //teste
-/*router.get('/imagem/:id', (req, res) => {
+router.get('/imagem/:id', (req, res) => {
     
     product.findByPk(req.params.id).then(produto => {
 
@@ -92,7 +88,7 @@ router.post('/produtos/save', upload.single('foto'), (req, res) => {
     })
 
   });
-*/
+
 
 //UPDATE
 
