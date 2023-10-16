@@ -66,11 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-var pedidos = [
-    { numeroPedido: 1, qtdProdutos: 2, codigosProdutos: [101, 102], valorTotal: 50, localEntrega: 'Rua A, 123', Status: 'preparando' },
-    { numeroPedido: 2, qtdProdutos: 1, codigosProdutos: [103], valorTotal: 30, localEntrega: 'Rua B, 456', Status: 'entregue'},
-    // Adicione mais pedidos aqui
-];
+/*
 
 var tabelaPedidos = document.getElementById('tabelaPedidos');
 
@@ -88,7 +84,7 @@ pedidos.forEach(function(pedido) {
 });
 tabelaPedidos.appendChild(tbody);
 
-
+*/
 
 
 

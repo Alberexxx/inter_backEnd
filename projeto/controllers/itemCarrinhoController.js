@@ -37,11 +37,11 @@ router.get('/addItem/:preco/:quantidade/:id_produto', (req, res) => {
 //add produto no carrinho pela home
 router.post('/addItemCarrinho', (req, res) => {
 
-    var id_produto =  req.body.idroduto
+    var id_produto =  req.body.idProduto
     var preco_unitario = req.body.preco
     var quantidade = 1
 
-    var id =  7   //req.session.usuario.id
+    var id =  6   //req.session.usuario.id
   // var id_produto = req.body.id_produto
    //var preco_unitario = req.body.preco
   // var quantidade = req.body.quantidade

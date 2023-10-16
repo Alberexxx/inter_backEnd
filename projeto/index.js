@@ -28,6 +28,7 @@ const carrinho = require('./models/carrinho')
 const avaliacao_site = require('./models/usuario')
 const endereco = require('./models/endereco')
 const item_carrinho = require('./models/itemCarrinho')
+const item_Pedido = require('./models/itemPedido')
 
 
 

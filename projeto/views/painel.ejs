@@ -12,7 +12,7 @@
 
 <body>
 
-    <%- include('./partials/navbar.ejs') %>
+    <%#- include('./partials/navbar.ejs') %>
 
 
     <div class="home">
@@ -44,13 +44,13 @@
                 <div class="Dados">
                     <div class="info-Dados">
                         <h3 class="Dados-titulo">Total de Vendas</h3>
-                        <p class="Dados-texto">1.400</p>
+                        <p class="Dados-texto"><%= totalVendas %></p>
                     </div>
                 </div>
                 <div class="Dados">
                     <div class="info-Dados">
                         <h3 class="Dados-titulo">Produtos Cadastrados</h3>
-                        <p class="Dados-texto">500</p>
+                        <p class="Dados-texto"><%= produtosCadastrados %></p>
                     </div>
                 </div>
                 <div class="Dados">
@@ -71,7 +71,36 @@
         </div>
         <div class="tabelaPedidos1">
             <h2 class="titulo2">Pedidos</h2>
-            <table id="tabelaPedidos"></table>
+            <button> Pedidos Finalizados</button>
+            <br> <br>
+            <table id="tabelaPedidos">
+                <thead>
+                    <tr>
+                        <th>Número do pedido</th>
+                        <th>produtos</th>
+                        <th>Valor Total </th>
+                        <th>Endereço de entrega</th>
+                        <th>Status</th>
+                        <th>alterar Status</th>
+                    </tr>
+                    
+                </thead>
+                <tbody>
+                    <% pedidos.forEach(pedido => { %>
+                        <tr>
+                            <td><%= pedido.id_pedido %></td>
+                            <td><%=  %></td>
+                            <td>101, 102...</td>
+                            <td><%= pedido.valorTotal %></td>
+                            <td><%= pedido.endereco %></td>
+                            <td><%= pedido.status %></td>
+                        </tr>
+                    <% }) %>
+                    
+                   
+                    
+                </tbody>
+            </table>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

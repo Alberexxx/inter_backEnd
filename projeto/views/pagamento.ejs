@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="/css/pagamento/dark_style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<link rel="stylesheet" href="estiloescuro.css">
 
 
 <body>
@@ -27,21 +26,21 @@
 
                 <div class="forma">
                     <img class="icon-forma" src="/img/pagamento/iconepix.png">
-                    <input name="opcao" id="pix" type="radio">
-                    <label id="pix" for="pix">Pagar com Pix</label>
+                    <input name="opcao" value="PIX" id="pix" type="radio">
+                    <label id="pix" for="pix"  >Pagar com Pix</label>
                 </div>
                 <br>
                 
                 <div class="forma">
                     <img class="icon-forma" src="/img/pagamento/iconecredito.png" >
-                    <input name="opcao" id="credito" type="radio" style="margin-bottom: 30px;">
+                    <input name="opcao" value="Credido" id="credito" type="radio" style="margin-bottom: 30px;">
                     <label for="credito">Pagar com Crédito</label>
                 </div>
                 <br>
                 
                 <div class="forma">
                     <img class="icon-forma" src="/img/pagamento/iconeboleto.png" >
-                    <input name="opcao" id="boleto" type="radio" style="margin-bottom: 30px;">
+                    <input name="opcao" value="boleto" id="boleto" type="radio" style="margin-bottom: 30px;">
                     <label for="boleto">Pagar com Boleto</label>
                 </div>
             </div>
@@ -57,14 +56,15 @@
 
                 <div class="inputbox">
                     <label for="Endereço" style="font-size: 20px;"></label><br>
-                    <input type="text" placeholder="Endereço Ex: Rua da Harmonia" id="Endereço" name="Endereço">
+                    <input type="text" placeholder="Endereço Ex: Rua da Harmonia" id="Endereço" name="endereco">
                 </div>   
                 <div class="inputbox">
                     <label for="referencia" style="font-size: 20px;"></label><br>
                     <input type="text" placeholder="Ponto de Referência" id="referencia" name="referencia">
+                    <input type="hidden" name="valorTotal" value="<%= valor %>">
+
                 </div>
             </div>
-
         </div>
         <div>
         <button style="margin-bottom: 20px;" type="submit" class="btn btn-outline-success">Finalizar pedido</button>

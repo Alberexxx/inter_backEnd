@@ -6,22 +6,9 @@ const router = express.Router();
 // --------> CRUD <-------- //
 
 //READ
-router.get('/pagamento', (req, res) => {
-   res.render("pagamento")
-})
+router.post('/pagamento', (req, res) => {
 
-
-//CREATE
-router.get('/add', (req, res) => {
-
-   usuario.create({
-    
-
-   }).then(() => {
-    
-   }).catch((err) => {
-    res.send(err)
-   })
+   res.render("pagamento", {valor: req.body.valor})
 })
 
 
