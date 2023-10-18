@@ -24,38 +24,50 @@
     <div class="container">
         <h1>Meus Pedidos</h1>
         <div class="ordem-lista">
-            <div class="ordem-item">
-                <h3>Pedido 1</h3>
-                <p>Produto: Óculos</p>
-                <p>Quantidade: 1</p>
-                <p>Total: R$ 50</p>
-                <p>Data: 04/12/2023</p>
-                <p class="status-process">Status: Processando</p>
+
+         <!--   <%# let numeroPedido = 1; %>
+            <%# pedidos.forEach(pedido => { %>
+             <div class="ordem-item">
+                <h3>Pedido <%#=  numeroPedido %></h3>
+                <p>Produto: </p>
+                <p>Quantidade de produtos: 1</p>
+                <p>Total: <%#= pedido.ValorTotal %></p>
+                <p>Data: <%#= pedido.createdAt %></p>
+                <p class="status-process">Status: <%#= pedido.status %></p>
             </div>
-            <div class="ordem-item">
-                <h3>Pedido 2</h3>
-                <p>Produto: Blusa </p>
-                <p>Quantidade: 2</p>
-                <p>Total: R$ 190</p>
-                <p>Data: 20/09/2023</p>
-                <p class="status-transito">Status: Em Trânsito</p>
-                </div>
+            <%# numeroPedido++; %>
+
+            <%# }) %>
+            -->
+
+            <% let numeroPedido = 1; %>
+            <% pedidos.forEach(pedido => { %>
                 <div class="ordem-item">
-                    <h3>Pedido 3</h3>
-                    <p>Produto: Calça</p>
-                    <p>Quantidade: 1</p>
-                    <p>Total: R$ 120</p>
-                    <p>Data: 05/10/2024</p>
-                    <p class="status-entregue">Status: Entregue</p>
+                    <h2>Pedido <%=  numeroPedido %></h2>
+                    <p><strong>Produtos:</strong>
+                        <% pedido.itensPedidos.forEach(itemPedido => { %>
+                           
+                            <%= produtos.find(produto => produto.id_produto === itemPedido.productIdProduto) ? produtos.find(produto => produto.id_produto === itemPedido.productIdProduto).nome_produto + ';' : 'N/A' %>
+                            
+                            <% }) %>
+                    </p>
+                   
+                   
+                    
+                    <p><strong>Total: </strong> R$<%= pedido.pedido.ValorTotal %></p>
+                    <p><strong>Data:</strong><%= pedido.pedido.data_realizacao %></p>
+                    
+                    <p class="status-process">Status: <strong><%= pedido.pedido.status %></strong></p>
+                    
                 </div>
-                <div class="ordem-item">
-                    <h3>Pedido 4</h3>
-                    <p>Produto: Camisa</p>
-                    <p>Quantidade: 2</p>
-                    <p>Total: R$ 250</p>
-                    <p>Data: 06/11/2023</p>
-                    <p class="status-cancel ">Status: Cancelado</p>
-                </div>
+                
+                <% numeroPedido++; %>
+            <% }) %>
+            
+            
+
+
+            
          </div>
         </body>
         </html>

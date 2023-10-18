@@ -31,10 +31,20 @@
     </header>
     <main>
       <div class="page-title">Seu Carrinho</div>
-      <div class="content">
-        <section>
-          <table>
-            <thead>
+    
+          <div class="content" >
+              <section style="display: inline;">
+              <table>
+              
+          <% if (items === undefined) { %>
+            
+            <h1>Parece que você não tem nenhum produto no carrinho </h1>
+            <h6> adicione algum produto para continuar a compra</h6>
+        
+          
+          <% } else { %>%>
+
+                <thead>
               <tr>
                 <th>Produto</th>
                 <th>Preço</th>
@@ -46,9 +56,8 @@
 
             <tbody>
 
-              
 
-             <% items.forEach(item => { %>
+               <% items.forEach(item => { %>
                 <% produtos.forEach(produto => { %>
                     <% if (item.productIdProduto === produto.id_produto) { %>
                       <tr>
@@ -76,6 +85,10 @@
                     <% } %>
                   <% }) %>
               <% }) %>
+          
+           <% } %>
+            
+            
                       
             </tbody>
           </table>
@@ -97,7 +110,12 @@
               
             </footer>
           </div>
-          <button>Finalizar Compra</button>
+          <% if (items !== undefined)  { %>
+           <button id="Btn">Finalizar Compra</button>
+          <% } else { %>
+            <br><br> <br>
+          <% } %>
+          
         </aside>
       </form>
       </div>

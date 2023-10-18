@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const plusButtons = document.querySelectorAll(".bx-plus");
     const minusButtons = document.querySelectorAll(".bx-minus");
     const quantityElements = document.querySelectorAll(".qty span");
+    
 
     // atualiza o total do produto 
     function updateProductTotal(row) {

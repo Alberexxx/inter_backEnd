@@ -8,9 +8,17 @@ const produtos = require("../models/product")
 
 //READ
 router.get('/admin/painel', (req, res) => {
-   pedidos.findAndCountAll({}).then( pedidosResult => {
+   pedidos.findAndCountAll({
+      order: [
+        ['id_pedido', 'DESC']]})
+        .then( pedidosResult => {
       produtos.findAndCountAll({}).then( produtosResult => {
-         res.render('painel', {pedidos: pedidosResult.rows, totalVendas: pedidosResult.count, produtosCadastrados:produtosResult.count })
+
+         pedidos.sum('ValorTotal').then( total => {
+            res.render('painel', {pedidos: pedidosResult.rows, totalVendas: pedidosResult.count, produtosCadastrados:produtosResult.count, total: total })
+
+         })
+
 
       }) 
    })

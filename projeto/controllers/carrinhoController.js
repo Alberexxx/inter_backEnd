@@ -42,19 +42,20 @@ router.get('/carrinho', (req, res) => {
                     });
                 } else {
                     console.error("productIdProduto não está definido em itemResult.");
-                    res.render("carrinho");
+                    res.render("carrinho", {items: undefined});
                 }
             }).catch((error) => {
+                
                 console.error("Erro ao buscar itens do carrinho:", error);
-                res.render("carrinho");
+                res.render("carrinho", {items: undefined});
             });
         } else {
             console.error("Carrinho não encontrado para o usuário.");
-            res.render("carrinho");
+            res.render("carrinho", {items: undefined});
         }
     }).catch((error) => {
         console.error("Erro ao buscar carrinho:", error);
-        res.render("carrinho");
+        res.render("carrinho", {items: undefined});
     });
 });
 

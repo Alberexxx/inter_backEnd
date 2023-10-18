@@ -39,6 +39,8 @@ const Product = connection.define("products", {
     }, nome_categoria: {
         type: Sequelize.STRING,
         allowNull: true
+    }, slug: {
+        type: Sequelize.STRING
     }
 })
 

@@ -58,7 +58,12 @@
                         <button class="btn btn-danger"> Deletar</button>
 
                     </form>
+                        
+                    <form action="/admin/produtos/edit" method="post" style="display: inline;"> 
+                        <input type="hidden" name="id" value="<%= produto.id_produto %>">
                         <button class="btn editar"> Editar</button>
+                    </form>
+                       
                    
             </td>
     <% }) %>

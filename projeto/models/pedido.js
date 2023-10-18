@@ -9,7 +9,7 @@ const Pedido = connection.define("Pedidos", {
         autoIncrement: true,
         primaryKey: true
     }, data_realizacao: {
-        type: Sequelize.DATE,
+        type: Sequelize.STRING,
         allowNull: false
     }, frete: {
         type: Sequelize.DECIMAL,

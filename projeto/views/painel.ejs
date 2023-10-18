@@ -22,9 +22,9 @@
             </div>
             <nav style="margin-left: 28vw;">
                 <ul class="opcoes">
-                    <li class="opcao"><a class="link" href="#">Inicio</a></li>
-                    <li class="opcao"><a class="link" href="#">Loja</a></li>
-                    <li class="opcao"><a class="link" href="#">Produtos</a></li>
+                    <li class="opcao"><a class="link" href="/admin/painel">Inicio</a></li>
+                    <li class="opcao"><a class="link" href="/home">Loja</a></li>
+                    <li class="opcao"><a class="link" href="/admin/produtos">Produtos</a></li>
                     <li class="opcao"><a class="link" href="#">Sair</a></li>
                     <li class="opcao"><a class="link" href="#">Login <i class="fas fa-sign-in-alt"></i></a></li>
                 </ul>
@@ -55,8 +55,8 @@
                 </div>
                 <div class="Dados">
                     <div class="info-Dados">
-                        <h3 class="Dados-titulo">Apuração diaria</h3>
-                        <p class="Dados-texto">2.000,00R$</p>
+                        <h3 class="Dados-titulo">Apuração total</h3>
+                        <p class="Dados-texto">R$<%= total %>,00</p>
                     </div>
                 </div>
             </section>
@@ -76,7 +76,7 @@
             <table id="tabelaPedidos">
                 <thead>
                     <tr>
-                        <th>Número do pedido</th>
+                        <th>Nº do pedido</th>
                         <th>produtos</th>
                         <th>Valor Total </th>
                         <th>Endereço de entrega</th>
@@ -89,11 +89,11 @@
                     <% pedidos.forEach(pedido => { %>
                         <tr>
                             <td><%= pedido.id_pedido %></td>
-                            <td><%=  %></td>
-                            <td>101, 102...</td>
-                            <td><%= pedido.valorTotal %></td>
+                            <td><button>Ver detalhes</button></td>
+                            <td><%= pedido.ValorTotal %></td>
                             <td><%= pedido.endereco %></td>
                             <td><%= pedido.status %></td>
+                            <td><button><a href="#">alterar Status</a></button></td>
                         </tr>
                     <% }) %>
                     
