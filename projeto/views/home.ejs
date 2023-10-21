@@ -70,13 +70,16 @@
     </section>
 
     <!-- seção de produtos  -->
- 
-    <h2>Exemplo de mensagem pop-up</h2>
 
   
     <div id="popup" class="popup" style="display:none;">
       Produto adicionado ao carrinho!
     </div>
+    <div id="popup2" class="popup" style="display:none;">
+        faça login para poder adicionar um produto ao seu carrinho.
+        <a href="/login" style="color: rgb(55, 197, 16);">clique aqui para logar</a>
+      </div>
+
         
             <!-- seção de produtos  -->
             <section class="trending-product" id="trending">
@@ -87,13 +90,13 @@
                 <% produtos.forEach(produto => { %>
                  
                     
-                        <div class="row">
-                            <img src="/imagem/<%= produto.id_produto %>" alt="">
+                        <div class="row" >
+                           <a href="detalhes-do-produto/<%= produto.id_produto %>/<%= produto.slug %>"><img src="/imagem/<%= produto.id_produto %>" alt=""></a> 
                             <div class="product-text">
                                 <h5>Oferta</h5>
                             </div>
                             <div class="heart-icon">
-                               <i class='bx bx-heart' id="<%= produto.id_produto %> " onclick="mudarCor('<%= produto.id_produto %>', '<%= produto.preco %>')" id="<%= produto.id_produto %>"  ></i>
+                               <i class='bx bx-heart'   onclick="mudarCor('<%= produto.id_produto %>', '<%= produto.preco %>')" id="<%= produto.id_produto %>"  ></i>
                             </div>
                             <div class="ratting">
                                 <i class='bx bx-star'></i>
@@ -105,7 +108,8 @@
             
                             <div class="price">
                                 <h4> <%= produto.nome_produto %></h4>
-                                <p>R$<%= produto.preco %>,00 </p>
+                                <p>R$<%= produto.preco %>,00 - R$<%= (parseFloat(produto.preco) * 0.3 + parseFloat(produto.preco)).toFixed(0)%>,00</p>
+
                             </div>
                         </div>
             
@@ -223,7 +227,7 @@
     
     <script src="js/home/script.js"></script>
     <script src="https://kit.fontawesome.com/998c60ef77.js" crossorigin="anonymous"></script>
-    <script src="js/home/ajax.js"></script>
+    <script src="/js/home/ajax.js"></script>
 
 </body>
 

@@ -19,6 +19,31 @@ router.get("/produtos" , (req, res) => {
     })
 })
 
+router.get("/detalhes-do-produto/:id/:slug", (req, res) => {
+    
+    var slug = req.params.slug
+    const Op = Sequelize.Op
+
+    product.findOne({where: {slug: slug}}).then( produto => {
+        if(produto !== undefined){
+            
+            product.findAll({
+                order: Sequelize.literal('rand()'),
+                limit: 4
+            
+            }).then( produtosRelacionados => {
+                    res.render("detalhesProduto", {produto: produto, produtosRelacionados: produtosRelacionados})
+                })
+                
+
+        } else {
+            res.redirect("home")
+        }
+    })
+})
+
+
+
 // Rota de busca
 
 router.post('/pesquisar', (req, res) => {
@@ -32,7 +57,6 @@ router.post('/pesquisar', (req, res) => {
             }
         }
     }).then(produtosFiltrados => {
-        console.log("Produtos Filtrados:", produtosFiltrados); // Adicione este console.log para verificar os produtos filtrados
         res.render("todosProdutos", { produtos: produtosFiltrados, pesquisa: valor });
     }).catch(error => {
         console.error('Erro na busca:', error);

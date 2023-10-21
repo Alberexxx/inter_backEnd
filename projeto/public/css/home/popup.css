@@ -8,3 +8,12 @@
     z-index: 1;
     border-radius: 5px;
 }
+
+#btn-coracao:hover {
+   cursor: pointer;
+}
+.products{
+    grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+    gap: 2rem;
+}
+

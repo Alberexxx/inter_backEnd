@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const item = require("../models/itemCarrinho");
 const usuario = require('../models/usuario');
-const carrinho = require("../models/carrinho")
+const carrinho = require("../models/carrinho");
+const item_carrinho = require('../models/itemCarrinho');
 
 
 // --------> CRUD <-------- //
@@ -46,21 +47,50 @@ router.post('/addItemCarrinho', (req, res) => {
    //var preco_unitario = req.body.preco
   // var quantidade = req.body.quantidade
 
-   carrinho.findOne({where: {usuarioIdUsuario: id}}).then( carrinho => {
-      item.create({
-           quantidade: quantidade,
-           preco_unitario: preco_unitario,
-           carrinhoIdCarrinho: carrinho.id_carrinho,
-           productIdProduto: id_produto
+     if(req.session.usuario === undefined) {
+          res.send('false')
+     } else {
+          carrinho.findOne({where: {usuarioIdUsuario: id}}).then( carrinho => {
+          item.create({
+               quantidade: quantidade,
+               preco_unitario: preco_unitario,
+               carrinhoIdCarrinho: carrinho.id_carrinho,
+               productIdProduto: id_produto
 
-      }).then(() => {
-           res.send("")
-      }).catch(() => {
+          }).then(() => {
+               res.send('true')
+          }).catch(() => {
 
-      })
-   })
+          })
+     })
+     }
 })
 
+router.post("/removeItem", (req, res) => {
+     var id = req.body.idItem
+     console.log(id);
+     
+     item_carrinho.destroy({where: {id_item: id}}).then( item => {
+          res.send("ok")
+     })
+})
+
+router.post('/mudarQuantidade', (req,res) => {
+     var id = req.body.idItem;
+     var qtd = req.body.qtd
+     item.findOne({where: {id_item: id}}).then( item => {
+          
+          newQuantidade = qtd + item.quantidade
+          item.update({quantidade: newQuantidade}, {
+               where: {
+                    id_item: id
+               }}).then( i => {
+                    res.send("ok")
+               })
+
+     })
+    
+})
 
 
 

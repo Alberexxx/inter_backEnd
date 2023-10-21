@@ -32,7 +32,13 @@ router.post("/authenticate", (req, res) => {
            email: user.email,
            nome: user.nome
          }
-         res.redirect('/home')
+         if(email === "admin@email.com") {
+          res.redirect("/admin/painel")
+         } else {
+          res.redirect('/home')
+
+         }
+
          
        } else {
          res.redirect('/login')
@@ -45,6 +51,21 @@ router.post("/authenticate", (req, res) => {
    })
  })
 
+ router.get("/perfil/validacao" , (req, res) => {
+    if( req.session.usuario === undefined){
+      res.redirect('/login')
+    } else {
+      res.redirect("/perfil")
+    }
+ })
+
+ router.get("/deslogar", (req, res) => {
+   
+    req.session.usuario = undefined
+    res.redirect("home")
+  
+ })
+
 router.post("/verificaEmailSenha", (req, res) => {
   var email = req.body.email
   var senha = req.body.senha
@@ -52,16 +73,12 @@ router.post("/verificaEmailSenha", (req, res) => {
   usuario.findOne({where: {email: email}}).then(user => {
     if(user != undefined) {
 
-      var correct = bcrypt.compareSync(senha, user.senha)
+     // var correct = bcrypt.compareSync(senha, user.senha)
 
-      if(correct) {
         res.send("")
-      } else {
-        res.send("senha ou email incorretos")
-      }
 
     } else {
-      res.send("email ou senha incorretos")
+      res.send("email incorreto")
     }
   })
 

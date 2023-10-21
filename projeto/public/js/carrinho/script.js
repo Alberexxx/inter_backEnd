@@ -36,9 +36,11 @@ document.addEventListener("DOMContentLoaded", function () {
     //  botão de remover
     removeButtons.forEach((button) => {
         button.addEventListener("click", function () {
+            id = document.getElementById("id")
             const row = button.closest("tr");
             row.remove();
             updateSubtotal();
+           
         });
     });
 
@@ -48,6 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const quantity = parseInt(quantityElements[index].textContent);
             quantityElements[index].textContent = quantity + 1;
             updateProductTotal(button.closest("tr"));
+            
         });
     });
 
@@ -71,5 +74,59 @@ function darkMode() {
     var element = document.body;
     element.classList.toggle("dark-mode");
   }
+
+  function removeItem(id) {
+   
+    const url = '/removeItem';
+    const requestOptions = {
+        method: 'POST', 
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ idItem: id})
+    };
+            fetch(url, requestOptions)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error('Erro na solicitação.')
+                }
+                return response.text(); 
+            })
+            .then((data) => {
+                
+                
+            })
+            .catch((error) => {
+                console.error('Erro:', error);
+            });       
+}
+
+function mudarQuantidade(id, qtd) {
+   
+    const url = '/mudarQuantidade';
+    const requestOptions = {
+        method: 'POST', 
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ idItem: id, qtd: qtd})
+    };
+            fetch(url, requestOptions)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error('Erro na solicitação.')
+                }
+                return response.text(); 
+            })
+            .then((data) => {
+                
+                
+            })
+            .catch((error) => {
+                console.error('Erro:', error);
+            });       
+}
+
+
 
 

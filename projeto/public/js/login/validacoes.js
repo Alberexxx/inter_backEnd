@@ -190,7 +190,6 @@ btn_login.disabled = true
 
 var email_login = document.getElementById("email_login")
 var senha_login = document.getElementById("senha_login")
-
 senha_login.addEventListener('input', verifica)
 email_login.addEventListener('input', verifica)
 

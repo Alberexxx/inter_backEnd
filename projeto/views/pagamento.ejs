@@ -26,21 +26,21 @@
 
                 <div class="forma">
                     <img class="icon-forma" src="/img/pagamento/iconepix.png">
-                    <input name="opcao" value="PIX" id="pix" type="radio">
+                    <input name="opcao" value="PIX" id="pix" type="radio" required>
                     <label id="pix" for="pix"  >Pagar com Pix</label>
                 </div>
                 <br>
                 
                 <div class="forma">
                     <img class="icon-forma" src="/img/pagamento/iconecredito.png" >
-                    <input name="opcao" value="Credido" id="credito" type="radio" style="margin-bottom: 30px;">
+                    <input name="opcao" value="Credido" id="credito" type="radio" style="margin-bottom: 30px;" required>
                     <label for="credito">Pagar com Crédito</label>
                 </div>
                 <br>
                 
                 <div class="forma">
                     <img class="icon-forma" src="/img/pagamento/iconeboleto.png" >
-                    <input name="opcao" value="boleto" id="boleto" type="radio" style="margin-bottom: 30px;">
+                    <input name="opcao" value="boleto" id="boleto" type="radio" style="margin-bottom: 30px;" required>
                     <label for="boleto">Pagar com Boleto</label>
                 </div>
             </div>
@@ -49,18 +49,18 @@
                 <h3>Endereço de entrega:</h3>
                 <div>
                     <container class="inputbox">
-                        <input type="text" placeholder="CEP 55620-000" id="cep" name="cep">
-                        <input type="text" placeholder="Número" id="numero" name="numero">
+                        <input type="text" placeholder="CEP 55620-000" id="cep" name="cep" required>
+                        <input type="text" placeholder="Número" id="numero" name="numero" required>
                     </container>
                 </div>
 
                 <div class="inputbox">
                     <label for="Endereço" style="font-size: 20px;"></label><br>
-                    <input type="text" placeholder="Endereço Ex: Rua da Harmonia" id="Endereço" name="endereco">
+                    <input type="text" placeholder="Endereço Ex: Rua da Harmonia" id="Endereço" name="endereco" required>
                 </div>   
                 <div class="inputbox">
                     <label for="referencia" style="font-size: 20px;"></label><br>
-                    <input type="text" placeholder="Ponto de Referência" id="referencia" name="referencia">
+                    <input type="text" placeholder="Ponto de Referência" id="referencia" name="referencia" required>
                     <input type="hidden" name="valorTotal" value="<%= valor %>">
 
                 </div>

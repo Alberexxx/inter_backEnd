@@ -72,14 +72,15 @@
                         <td>R$ <%=  produto.preco %> </td>
                         <td>
                           <div class="qty">
-                            <button><i class="bx bx-minus"></i></button>
-                            <span>1</span>
-                            <button><i class="bx bx-plus"></i></button>
+                            
+                            <button onclick="mudarQuantidade('<%=  item.id_item %>', -1)"><i class="bx bx-minus"></i></button>
+                            <span id="quantidade"><%= item.quantidade %></span>
+                            <button onclick="mudarQuantidade('<%=  item.id_item %>', 1)"><i class="bx bx-plus"></i></button>
                           </div>
                         </td>
                         <td>R$ <%=  produto.preco %> </td>
-                        <td>
-                          <button class="remove"><i class="bx bx-x"></i></button>
+                        <td>    
+                          <button class="remove" onclick="removeItem('<%=  item.id_item %>')"><i class="bx bx-x"></i></button>
                         </td>
                       </tr>
                     <% } %>

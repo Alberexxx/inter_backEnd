@@ -8,6 +8,8 @@ setTimeout(function(){ popup.style.display = "none"; }, 3000); // Oculta o popup
 function mudarCor(id, preco) {
     var btn = document.getElementById(`${id}`);
     var popup = document.getElementById("popup");
+    var popup2 = document.getElementById("popup2");
+
     const url = '/addItemCarrinho';
    
     const requestOptions = {
@@ -20,14 +22,18 @@ function mudarCor(id, preco) {
             fetch(url, requestOptions)
             .then((response) => {
                 if (!response.ok) {
-                    throw new Error('Erro na solicitação.');
+                    throw new Error('Erro na solicitação.')
                 }
                 return response.text(); 
             })
             .then((data) => {
                 
-                //renderConteudo(); 
-                mostrarMensagem()
+                if (data === "true"){
+                    mostrarMensagem()
+                } else {
+                    MensagemLogin()
+                }
+                
             })
             .catch((error) => {
                 console.error('Erro:', error);
@@ -41,7 +47,13 @@ function mudarCor(id, preco) {
     function mostrarMensagem() {
 
     popup.style.display = "block";
-    setTimeout(function(){ popup.style.display = "none"; }, 3000); // Oculta o popup após 3 segundos
+    setTimeout(function(){ popup.style.display = "none"; }, 3000); 
+    }
+
+    function MensagemLogin() {
+
+    popup2.style.display = "block";
+    setTimeout(function(){ popup2.style.display = "none"; }, 10000); 
     }
 
           

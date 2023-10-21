@@ -25,6 +25,15 @@ const item_carrinho = require('../models/itemCarrinho');
 
 })*/
 
+router.get("/carrinho/validacao" , (req, res) => {
+    if( req.session.usuario === undefined){
+      res.redirect('/login')
+    } else {
+      res.redirect("/carrinho")
+    }
+ })
+
+
 router.get('/carrinho', (req, res) => {
     var userId = 6;
 

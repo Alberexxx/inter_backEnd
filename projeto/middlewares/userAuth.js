@@ -3,7 +3,7 @@ function userAuht(req, res, next) {
         next();
 
     } else {
-        res.redirect("home")
+        res.redirect("login")
     }
 }
 

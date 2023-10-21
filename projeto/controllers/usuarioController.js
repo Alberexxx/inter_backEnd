@@ -19,6 +19,13 @@ router.get('', (req, res) => {
     })
 })
 
+router.get("/perfil", (req, res) => {
+  var id = 6;
+  usuario.findOne({where: {id_usuario: id}}).then( user => {
+      res.render("perfil", {usuario: user})
+  })
+})
+
 
 //CREATE
 /*router.post('/login/create', (req, res) => {
@@ -87,6 +94,11 @@ router.post('/login/create', (req, res) => {
           carrinho.create({
             usuarioIdUsuario: usuario.id_usuario,
           }).then(() => {
+            req.session.usuario = {
+              id: usuario.id_usuario,
+              email: usuario.email,
+              nome: usuario.nome
+            }
             res.redirect('/home');
           });
         })

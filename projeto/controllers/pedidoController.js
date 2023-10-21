@@ -10,7 +10,7 @@ const produto = require("../models/product")
 // --------> CRUD <-------- //
 
 //READ
-router.get('/pedidos', (req, res) => {
+router.get('/pedidos', userAuht, (req, res) => {
     var id = 6;
 
     pedido.findAll({ where: { usuarioIdUsuario: id } }).then(pedidos => {
