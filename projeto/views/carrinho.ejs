@@ -20,42 +20,31 @@
 
     <%- include('./partials/navbar.ejs') %>
 
-
-    <header>
-      <span><a href=""><img src="img/carrinho/logo.png" width="200px" class="media-object  img-responsive img-thumbnail"></a> </span>    
-    </div>
-    <div class="dark-mode">
-   <!-- <button onclick="darkMode()" ><i class='bx bx-moon'></i></button>-->
-
-   </div>
-    </header>
-    <main>
+    <main class="container">
+      <br><br>
       <div class="page-title">Seu Carrinho</div>
     
           <div class="content" >
-              <section style="display: inline;">
-              <table>
+              <section id="msg" style="display: inline;">
+              <table> 
               
           <% if (items === undefined) { %>
             
-            <h1>Parece que você não tem nenhum produto no carrinho </h1>
-            <h6> adicione algum produto para continuar a compra</h6>
-        
+            <div class="msg" >
+              <h2 >Parece que você não tem nenhum produto no carrinho </h2>
+              <p> adicione algum produto para continuar a compra</p>
+           </div>
           
           <% } else { %>%>
 
                 <thead>
               <tr>
-                <th>Produto</th>
-                <th>Preço</th>
-                <th>Quantidade</th>
-                <th>Total</th>
-                <th>-</th>
+                <th>Produto </th>
+
               </tr>
             </thead>
 
             <tbody>
-
 
                <% items.forEach(item => { %>
                 <% produtos.forEach(produto => { %>
@@ -63,24 +52,24 @@
                       <tr>
                         <td>
                           <div class="product">
-                            <img src="/imagem/<%=  produto.id_produto %>" alt="" style="width: 20%;" />
+                            <img src="/imagem/<%=  produto.id_produto %>" alt="" id="foto_produto" />
                             <div class="info">
                               <div class="name"><%=  produto.nome_produto %></div>
                             </div>
                           </div>
                         </td>
-                        <td>R$ <%=  produto.preco %> </td>
+                        <td  id="preco1">R$ <%=  produto.preco %> </td>
                         <td>
                           <div class="qty">
                             
-                            <button onclick="mudarQuantidade('<%=  item.id_item %>', -1)"><i class="bx bx-minus"></i></button>
+                            <button onclick="mudarQuantidade('<%=  item.id_item %>', -1)"><i id="itens" class="bx bx-minus"></i></button>
                             <span id="quantidade"><%= item.quantidade %></span>
-                            <button onclick="mudarQuantidade('<%=  item.id_item %>', 1)"><i class="bx bx-plus"></i></button>
+                            <button onclick="mudarQuantidade('<%=  item.id_item %>', 1)"><i id="itens" class="bx bx-plus"></i></button>
                           </div>
                         </td>
-                        <td>R$ <%=  produto.preco %> </td>
+                        <td  id="preco2">R$ <%= produto.preco %> </td>
                         <td>    
-                          <button class="remove" onclick="removeItem('<%=  item.id_item %>')"><i class="bx bx-x"></i></button>
+                          <button class="remove" onclick="removeItem('<%=  item.id_item %>')"><i id="itens" class="bx bx-x"></i></button>
                         </td>
                       </tr>
                     <% } %>
@@ -121,6 +110,8 @@
       </form>
       </div>
     </main>
+    <%- include('./partials/footer.ejs') %>
     <script src="/js/carrinho/script.js"></script>
   </body>
 </html>
+

@@ -6,6 +6,8 @@ const multer = require("multer")
 const { Op } = require('sequelize'); 
 const Sequelize = require("sequelize")
 
+const adminAuth = require("../middlewares/adminAuth")
+
 
 //multer
 
@@ -65,7 +67,7 @@ router.post('/pesquisar', (req, res) => {
 });
 
 
-router.get('/admin/addProduto', (req, res) => {
+router.get('/admin/addProduto', adminAuth, (req, res) => {
     res.render("addProduto")
  })
  
@@ -76,7 +78,7 @@ router.get('/admin/addProduto', (req, res) => {
 // --------> CRUD <-------- //
 
 //READ
-router.get('/admin/produtos', (req, res) => {
+router.get('/admin/produtos', adminAuth, (req, res) => {
     product.findAll().then((produtos) => {
         
        res.render('produtos', {produtos: produtos})

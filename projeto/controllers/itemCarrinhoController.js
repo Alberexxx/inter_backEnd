@@ -42,14 +42,12 @@ router.post('/addItemCarrinho', (req, res) => {
     var preco_unitario = req.body.preco
     var quantidade = 1
 
-    var id =  6   //req.session.usuario.id
-  // var id_produto = req.body.id_produto
-   //var preco_unitario = req.body.preco
-  // var quantidade = req.body.quantidade
+    
 
      if(req.session.usuario === undefined) {
           res.send('false')
      } else {
+          var id = req.session.usuario.id
           carrinho.findOne({where: {usuarioIdUsuario: id}}).then( carrinho => {
           item.create({
                quantidade: quantidade,

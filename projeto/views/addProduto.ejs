@@ -8,14 +8,29 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/addproduto/style.css">
+    <link rel="stylesheet" href="/css/painel/style.css">
+
 </head>
 
 <body>
 
-    <%- include('./partials/navbar.ejs') %>
 
+    <header class="painel-administrativo">
+        <div class="logo">
+            <img src="/img/painel/logo.png" alt="Logo da Loja">
+        </div>
+        <nav style="margin-left: 28vw;">
+            <ul class="opcoes">
+                <li class="opcao"><a class="link" href="/admin/painel">Inicio</a></li>
+                <li class="opcao"><a class="link" href="/home">Loja</a></li>
+                <li class="opcao"><a class="link" href="/admin/produtos">Produtos</a></li>
+                <li class="opcao"><a class="link" href="/deslogar">Sair</a></li>
+            </ul>
+        </nav>
+    </header>
+   
 
-    <div class="signup-body">
+    <div class="signup-body"> 
         <div class="container">
             <div class="login-box">
                 <div class="login-header">
@@ -34,7 +49,7 @@
                                             <img id="fotoproduto" src="https://abrai.me/ImPh1" alt="" />
                                         </label>
                                         <label class="borda-arredondada input" for="foto"
-                                            style="color: rgb(26, 255, 0);">Selecionar um arquivo
+                                            style="color: rgb(2, 2, 2);">Selecionar um arquivo
                                             <img src="https://cdn3.iconfinder.com/data/icons/glypho-generic-icons/64/action-upload-alt-512.png"
                                                 style="width: 20px" />
                                         </label>
@@ -89,7 +104,7 @@
                                
                                     
                                     <div class="input-container">
-                                        <input type="submit" value=" cadastrar produto ">
+                                        <input class="submit" type="submit" value=" cadastrar produto ">
                                     </div>
                                 </div>
                             </div>

@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/css/produtos/style.css">
+    <link rel="stylesheet" href="/css/painel/style.css">
+
 </head>
 <head>
     <style> 
@@ -16,31 +18,44 @@
 </head>
 <body>
 
-    <%- include('./partials/navbar.ejs') %>
+    
+     <header class="painel-administrativo">
+            <div class="logo">
+                <img src="/img/painel/logo.png" alt="Logo da Loja">
+            </div>
+            <nav style="margin-left: 28vw;">
+                <ul class="opcoes">
+                    <li class="opcao"><a class="link" href="/admin/painel">Inicio</a></li>
+                    <li class="opcao"><a class="link" href="/home">Loja</a></li>
+                    <li class="opcao"><a class="link" href="/admin/produtos">Produtos</a></li>
+                    <li class="opcao"><a class="link" href="/deslogar">Sair</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <br><br>
+   
 
 
-        <div class="container">
-        <hr>
-        <div class="logo">
-    <img src="/img/login/logo.png" alt="Logo da Loja">
+         <h1 id="titulo">Produtos Cadastrados</h1>  
+        <button class="btn form"  id="btn_adicionar"> <a style="color: black;" href="/admin/addProduto">Adicionar Produtos</a></button>
+        <br><br><br>
 
-        </hr>   
-<table border="1"> 
-    <thead>
+<table  id="tabela" border="2px"> 
+    <thead >
         <tr>
-        <th>ID</th>
-        <th>NOME DO PRODUTO</th>
-        <th>PREÇO</th>
-        <th>DESCRIÇÃO</th>
-        <th>COR</th>
-        <th>OPÇÔES DE PRODUTO</th>
+        <th style="background-color: black;">ID</th>
+        <th style="background-color: black;">NOME DO PRODUTO</th>
+        <th style="background-color: black;">PREÇO</th>
+        <th style="background-color: black;">DESCRIÇÃO</th>
+        <th style="background-color: black;">COR</th>
+        <th style="background-color: black;">OPÇÔES DE PRODUTO</th>
         </tr>
     </thead>
     <body>
-    <h2>Produtos Cadastrados</h2>            
+             
     
-        <button class="btn form" > <a href="/admin/addProduto">Adicionar Produtos</a></button>
-
+        
 
     <% produtos.forEach(produto => { %>
             </form>
@@ -67,8 +82,10 @@
                    
             </td>
     <% }) %>
+    <br>
     
 
 </body>
 </table>
+<br><br><br>
 </html>

@@ -31,7 +31,7 @@
         </header>
         <div class="titulo">
             <div id="titulo">
-                <h1>Painel Administrativo</h1>
+                <h2>Painel Administrativo</h2>
             </div>
         </div>
 
@@ -69,10 +69,12 @@
             </div>
         </div>
         <div class="tabelaPedidos1">
+            
             <h2 class="titulo2">Pedidos</h2>
-            <button> Pedidos Finalizados</button>
+            <button class="button" id="btn_finalizado"> Pedidos Finalizados</button>
             <br> <br>
             <table id="tabelaPedidos">
+                
                 <thead>
                     <tr>
                         <th>Nº do pedido</th>
@@ -88,20 +90,21 @@
                     <% pedidos.forEach(pedido => { %>
                         <tr>
                             <td><%= pedido.id_pedido %></td>
-                            <td><button>Ver detalhes</button></td>
+                            <td><button class="button">Ver detalhes</button></td>
                             <td><%= pedido.ValorTotal %></td>
                             <td><%= pedido.endereco %></td>
                             <td><%= pedido.status %></td>
-                            <td><button><a href="#">alterar Status</a></button></td>
+                            <td><button class="button">alterar Status</button></td>
                         </tr>
                     <% }) %>
                     
                    
-                    
+                      
                 </tbody>
             </table>
         </div>
     </div>
+    <br><br>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="/js/painel/script.js"></script>
 </body>

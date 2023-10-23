@@ -3,7 +3,8 @@
 var caixaTexto = document.getElementById("inputEmail");
 var botao_cadastro = document.getElementById('btn-cadastro');
 botao_cadastro.disabled = true;
-botao_cadastro.style.backgroundColor = "rgb(224, 215, 215)"
+botao_cadastro.style.backgroundColor = "#fff";
+botao_cadastro.style.color = 'black'
 
 var aviso = document.getElementById("validaEmail");
 
@@ -51,7 +52,7 @@ caixaTexto.addEventListener('input', () => {
 
                 aviso.innerHTML = texto;
                 botao_cadastro.disabled = true;
-                botao_cadastro.backgroundColor = "rgb(224, 215, 215)"
+                botao_cadastro.backgroundColor = "#fff"
                 
             }
 
@@ -74,7 +75,7 @@ function validarFormulario() {
 
     } else {
       botao_cadastro.disabled = true;
-      botao_cadastro.backgroundColor = "rgb(224, 215, 215)"
+      botao_cadastro.backgroundColor = "#fff"
 
     }
 }
@@ -95,7 +96,7 @@ function verificarSenhas() {
 
         if (senha1Valor === senha2Valor && senha1Valor !== '' && senha2Valor !== '') {
             aviso_igual.textContent = "Senhas coincidem!";
-            aviso_igual.style.color = "green";
+            aviso_igual.style.color = "#7CFC00";
     } else {
         aviso_igual.textContent = "As senhas são diferentes";
         aviso_igual.style.color = "red";
@@ -116,7 +117,7 @@ function verificarSenhas() {
 
         } else {
           botao_cadastro.disabled = true;
-          botao_cadastro.backgroundColor = "rgb(224, 215, 215)"
+          botao_cadastro.backgroundColor = "#fff"
 
         }
     }
@@ -133,11 +134,13 @@ function verificarSenhas() {
 
 // validacoes do login --------------------------------------------------------------------------------------------------------------
 
-var email_login = document.getElementById("email_login")
-var senha_login = document.getElementById("senha_login")
-var avisoLogin = document.getElementById("aviso_login");
-var btn_login = document.getElementById("btnLogin")
-btn_login.style.backgroundColor = "rgb(224, 215, 215)"
+var email_login = document.getElementById("email_login");
+var senha_login = document.getElementById("senha_login");
+var avisoLogin = document.getElementById("aviso_login");    
+var btn_login = document.getElementById("btnLogin");
+btn_login.style.backgroundColor = "#fff"
+btn_login.style.color = 'black'
+
 btn_login.disabled = true
    
     function verifica() {
@@ -165,12 +168,12 @@ btn_login.disabled = true
 
                 if(data != '') {
                     renderConteudo(data); 
-                    btn_login.style.backgroundColor = "rgb(224, 215, 215)"
+                    btn_login.style.backgroundColor = ""
                     btn_login.disabled = true
 
                 } else {
                     avisoLogin.innerHTML = '';
-                    btn_login.style.backgroundColor = ""
+                    btn_login.style.backgroundColor = "#7CFC00"
                     btn_login.disabled = false
 
                 }

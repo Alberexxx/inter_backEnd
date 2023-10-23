@@ -39,11 +39,9 @@ function mudarCor(id, preco) {
                 console.error('Erro:', error);
             });
 
-    function renderConteudo() {
+    
 
-    btn.style.color = "#7CFC00"
 
-}
     function mostrarMensagem() {
 
     popup.style.display = "block";

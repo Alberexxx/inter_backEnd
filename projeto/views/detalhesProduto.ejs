@@ -44,27 +44,9 @@
     <div class="cupom-text">
       <p>30% OFF utilizando o cupom: UNIBRA.</p>
     </div>
-    <header id="navbar">
-      <ul class="navmenu">
-        <li><a href="#">home</a></li>
-        <li><a href="#">produtos</a></li>
-        <li><a id="login-mobile" href="#">Entra</a></li>
-      </ul>
 
-     
-      <a href="#" class="logo"><img src="imagem/logo.png" alt="" /></a>
+    <%- include('./partials/navbar.ejs') %>
 
-      <div class="nav-icon">
-        <form id="icon">
-          <a href="#"><i id="mode_icon" class="bx bx-sun"></i></a>
-          <a href="#"><i id="icon-0" class="bx bx-search"></i></a>
-          <a href="#"><i id="icon-0" class="bx bx-user"></i></a>
-          <a href="#"><i id="icon-0" class="bx bx-cart"></i></a>
-        </form>
-
-        <div class="bx bx-menu" id="menu-icon"></div>
-      </div>
-    </header>
     <!-- seção-do-corpo -->
     <main>
       <section>
@@ -82,8 +64,8 @@
               <h1><%= produto.nome_produto %></h1>
               <p>Até 3x de R$<%= produto.preco / 3 %>,00 s/ juros</p>
               <div class="prices">
-                <span class="price">R$ <%= produto.preco %></span>
-                <span class="off">R$ <%= (parseFloat(produto.preco) * 0.3 + parseFloat(produto.preco)).toFixed(2) %></span>
+                <span class="price">R$ <%= produto.preco %>,90</span>
+                <span class="off">R$129,99</span>
 
               </div>
               <div class="select-menu">
@@ -106,7 +88,7 @@
                   </li>
               </div>
               <div class="options">
-                <a href="#" class="button"
+                <a href="#" class="button" onclick="mudarCor('<%= produto.id_produto %>', '<%= produto.preco %>')" id="<%= produto.id_produto %>"
                   ><img src="/img/detalhesProduto/icon-cart.svg" />Adicionar ao Carrinho</a
                 >
               </div>
@@ -172,62 +154,10 @@
       </section>
     </main>
     <!-- seção-de-contato -->
-    <footer>
-      <section class="contact">
-        <div class="contact-info">
-          <div class="first-info">
-            <img src="imagem/logo.png" alt=""  />
+   
+    <%- include('./partials/footer.ejs') %>
 
-            <p>
-              Rua Eunápolis Nº41, <br />
-              Pernambuco Brasil - 50080-000
-            </p>
-            <p>081 98351-1451</p>
-            <p>Trevo.co@gmail.com</p>
-
-            <div class="social-icon">
-              <a href="#"><i class="bx bxl-facebook"></i></a>
-              <a href="#"><i class="bx bxl-twitter"></i></a>
-              <a href="#"><i class="bx bxl-instagram"></i></a>
-              <a href="#"><i class="bx bxl-youtube"></i></a>
-              <a href="#"><i class="bx bxl-linkedin"></i></a>
-            </div>
-          </div>
-
-          <div class="second-info">
-            <h4>Suporte</h4>
-            <p>Contate-Nos</p>
-            <p>Sobre A Página</p>
-            <p>Guia De Tamanho</p>
-            <p>Compras E Devoluções</p>
-            <p>Privacidade</p>
-          </div>
-
-          <div class="third-info">
-            <h4>Comprar</h4>
-            <p>Unisex</p>
-            <p>Masculina</p>
-            <p>Desconto</p>
-          </div>
-
-          <div class="fourth-info">
-            <h4>EMPRESA</h4>
-            <p>Sobre</p>
-            <p>Blog</p>
-            <p>Afiliado</p>
-            <p>Conecte-Se</p>
-          </div>
-        </div>
-      </section>
-
-      <div class="end-text">
-        <p>
-          Copyright © @2023. Todos os direitos reservados. Projetado por Everton
-          Ribeiro.
-        </p>
-      </div>
-    </footer>
-
+   
     <script src="/js/detalhesProduto/script.js"></script>
     <script
       src="https://kit.fontawesome.com/998c60ef77.js"

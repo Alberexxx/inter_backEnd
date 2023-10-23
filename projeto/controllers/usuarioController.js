@@ -4,71 +4,26 @@ const bcrypt = require("bcryptjs")
 const usuario = require("../models/usuario")
 const carrinho = require("../models/carrinho")
 
+const userAuth = require("../middlewares/userAuth")
+
+
 router.use(express.json()); //Para analisar dados JSON
 
 
 // --------> CRUD <-------- //
 
 //READ
-router.get('', (req, res) => {
-    usuario.findAll().then((   ) => {
-        
-        
-    }).catch((err) => {
-        res.send(err)
-    })
-})
 
-router.get("/perfil", (req, res) => {
-  var id = 6;
+
+router.get("/perfil", userAuth ,(req, res) => {
+  var id = req.session.usuario.id
   usuario.findOne({where: {id_usuario: id}}).then( user => {
       res.render("perfil", {usuario: user})
   })
 })
 
 
-//CREATE
-/*router.post('/login/create', (req, res) => {
 
-    var email = req.body.email;
-    var senha = req.body.senha;
-    var nome = req.body.nome
-  
-    usuario.findOne({where: {email: email}}).then( user => {
-      if(user == undefined) {
-  
-        var salt = bcrypt.genSaltSync(3);
-        var hash = bcrypt.hashSync(senha, salt);
-  
-        
-        usuario.create({
-          email: email,
-          senha: hash,
-          nome: nome
-
-        }).then((novoUsuario) => {
-            
-          carrinho.create({
-
-
-          }).then((carrinho) => {
-            novoUsuario.addCarrinho(carrinho).then(() => {
-                res.redirect("home")
-            })
-          })
-        }).catch((err) => {
-          res.send(err)
-          return;
-        })
-
-  
-      } else {
-        //res.redirect(`/login?mensagem=${encodeURIComponent('já existe um cadastro com esse email!!, tente usar outro.')}`)
-        res.redirect("/pagamento")
-     }
- })
-
-})  */
 
 //rota de re_redirecionamento para a home
 

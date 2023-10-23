@@ -4,10 +4,12 @@ const userAdmin = require("../models/userAdmin")
 const pedidos = require("../models/pedido")
 const produtos = require("../models/product")
 
+const adminAuth = require("../middlewares/adminAuth")
+
 // --------> CRUD <-------- //
 
 //READ
-router.get('/admin/painel', (req, res) => {
+router.get('/admin/painel', adminAuth , (req, res) => {
    pedidos.findAndCountAll({
       order: [
         ['id_pedido', 'DESC']]})
@@ -26,17 +28,6 @@ router.get('/admin/painel', (req, res) => {
 
 
 //CREATE
-router.get('/add', (req, res) => {
-
-   userAdmin.create({
-    
-
-   }).then(() => {
-    
-   }).catch((err) => {
-    res.send(err)
-   })
-})
 
 
 //UPDATE

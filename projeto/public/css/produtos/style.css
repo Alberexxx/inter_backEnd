@@ -1,4 +1,12 @@
-/* Estilize o container com a classe "container" */
+:root {
+  --color-black: #000;
+  --color-whiter: #fff;
+  --color-green: #7CFC00;
+  --color-darkgreen: #01a116;
+  --color-orange: #FF8C00;
+  --color-gray: #2c2c2c;
+
+}/* Estilize o container com a classe "container" */
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -6,6 +14,9 @@
 }
 
 /* Estilize a imagem do logo */
+#titulo {
+  margin-left: 50px;
+}
 .logo img {
   align-items: center;
   width: 160px;                  
@@ -27,7 +38,7 @@ td{
 
 /* Estilize os cabeçalhos da tabela */
 th {
-  background-color: #0e0d0d;
+  background-color: #000;
   color: #fff;
   padding: 10px;
 }
@@ -72,6 +83,26 @@ td {
 .btn:hover {
   background-color: #940f0a;
 }
+#btn_adicionar {
+  display: block;
+  float: left;
+  color: black;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  background-color: #68ce02;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  margin-left: 30px;
+}
+#btn_adicionar:hover {
+  background-color: #66ad1e;
+  
+}
 
 .btn.editar:hover {
   background-color: #99aa04;
@@ -83,4 +114,10 @@ td {
 
 a {
   text-decoration: none;
+}
+#tabela {
+ width: auto;
+ margin: auto;
+ 
+
 }

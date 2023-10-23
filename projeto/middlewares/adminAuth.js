@@ -2,13 +2,13 @@ const bcrypt = require("bcryptjs")
 
 
 function adminAuht(req, res, next) {
-    if (req.session.usuario != undefined) {
-        if (req.session.email == "admin@email.com" && req.session.id == 8)
+    if ( req.session.usuario != undefined ) {
+        if (req.session.usuario.email == "admin@email.com" && req.session.usuario.id == 8)
 
         next();
 
     } else {
-        res.redirect("home")
+        res.redirect("/home")
     }
 }
 
